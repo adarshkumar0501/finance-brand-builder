@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download, Mail } from 'lucide-react';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -12,60 +12,104 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100 pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Modern gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-100/30"></div>
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-32 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-gradient-to-br from-emerald-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
-          {/* Profile Image */}
-          <div className="mb-8 animate-fade-in">
-            <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-blue-600 p-1">
-              <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center">
-                  <span className="text-4xl font-bold text-gray-600">AK</span>
+          {/* Enhanced Profile Image with modern styling */}
+          <div className="mb-12 animate-fade-in">
+            <div className="relative w-56 h-56 mx-auto">
+              {/* Animated ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 p-1 animate-pulse">
+                <div className="w-full h-full rounded-full bg-white p-2">
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden shadow-2xl">
+                    <div className="w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+                      <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AK</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              
+              {/* Floating badge */}
+              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce">
+                ✨ Open to Work
               </div>
             </div>
           </div>
 
-          {/* Main Content */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Adarsh Kumar
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Finance Enthusiast | Data-Driven Thinker | Future Analyst
-            </p>
-            <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
-              BBA Finance Student passionate about financial analysis, investment research, 
-              and sustainable business practices with hands-on experience in data-driven strategies.
+          {/* Enhanced main content */}
+          <div className="animate-fade-in space-y-6" style={{ animationDelay: '0.2s' }}>
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight">
+                Adarsh Kumar
+              </h1>
+              <div className="flex items-center justify-center space-x-2 text-xl md:text-2xl text-gray-600">
+                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                <span>Finance Enthusiast</span>
+                <span className="text-gray-400">|</span>
+                <span>Data-Driven Thinker</span>
+                <span className="text-gray-400">|</span>
+                <span>Future Analyst</span>
+              </div>
+            </div>
+            
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              BBA Finance Student passionate about <span className="font-semibold text-blue-600">financial analysis</span>, 
+              <span className="font-semibold text-indigo-600"> investment research</span>, and 
+              <span className="font-semibold text-emerald-600"> sustainable business practices</span> with hands-on experience in data-driven strategies.
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          {/* Enhanced CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mt-12" style={{ animationDelay: '0.4s' }}>
             <Button 
               onClick={scrollToAbout}
               size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg transition-all duration-200 hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
             >
-              Explore My Work
+              <span>Explore My Work</span>
+              <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
             </Button>
+            
             <Button 
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               variant="outline" 
               size="lg" 
-              className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg transition-all duration-200 hover:scale-105"
+              className="border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group backdrop-blur-sm bg-white/80"
             >
-              Get in Touch
+              <Mail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span>Get in Touch</span>
+            </Button>
+            
+            <Button 
+              variant="ghost"
+              size="lg" 
+              className="text-gray-600 hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group hover:bg-blue-50"
+            >
+              <Download className="mr-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+              <span>Download CV</span>
             </Button>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="mt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          {/* Enhanced scroll indicator */}
+          <div className="mt-20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <button 
               onClick={scrollToAbout}
-              className="inline-flex items-center text-gray-500 hover:text-blue-600 transition-colors duration-200"
+              className="group inline-flex flex-col items-center text-gray-500 hover:text-blue-600 transition-all duration-300"
             >
-              <ArrowDown className="w-6 h-6 animate-bounce" />
+              <span className="text-sm font-medium mb-2 opacity-70 group-hover:opacity-100">Scroll to explore</span>
+              <div className="relative">
+                <ArrowDown className="w-6 h-6 animate-bounce group-hover:translate-y-1 transition-transform duration-300" />
+                <div className="absolute inset-0 w-6 h-6 bg-blue-500/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-300"></div>
+              </div>
             </button>
           </div>
         </div>
