@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail } from 'lucide-react';
+import { ArrowDown, Download, Mail, Phone, Linkedin } from 'lucide-react';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -40,7 +40,7 @@ const Hero = () => {
               
               {/* Floating badge */}
               <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce">
-                ✨ Open to Work
+                ✨ Top 5% Student
               </div>
             </div>
           </div>
@@ -55,17 +55,44 @@ const Hero = () => {
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
                 <span>Finance Enthusiast</span>
                 <span className="text-gray-400">|</span>
-                <span>Data-Driven Thinker</span>
+                <span>Data-Driven Analyst</span>
                 <span className="text-gray-400">|</span>
-                <span>Future Analyst</span>
+                <span>Future Leader</span>
               </div>
             </div>
             
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              BBA Finance Student passionate about <span className="font-semibold text-blue-600">financial analysis</span>, 
-              <span className="font-semibold text-indigo-600"> investment research</span>, and 
-              <span className="font-semibold text-emerald-600"> sustainable business practices</span> with hands-on experience in data-driven strategies.
+              BBA Finance Student from <span className="font-semibold text-blue-600">Vivekananda Global University, Jaipur</span>, 
+              ranked in the <span className="font-bold text-emerald-600">top 5% among 250+ peers</span>. 
+              Currently interning at <span className="font-semibold text-indigo-600">Jalvayu.co</span> with multiple certifications in financial analysis and markets.
             </p>
+          </div>
+
+          {/* Contact info quick links */}
+          <div className="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <a 
+              href="mailto:adarshkumar05012002@gmail.com"
+              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-blue-600"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="text-sm font-medium">Email</span>
+            </a>
+            <a 
+              href="tel:+918789211917"
+              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-green-600"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="text-sm font-medium">+91 8789211917</span>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/adarshkumar-"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-blue-500"
+            >
+              <Linkedin className="w-4 h-4" />
+              <span className="text-sm font-medium">LinkedIn</span>
+            </a>
           </div>
 
           {/* Enhanced CTA buttons */}
@@ -75,7 +102,7 @@ const Hero = () => {
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
             >
-              <span>Explore My Work</span>
+              <span>View My Work</span>
               <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
             </Button>
             
@@ -86,7 +113,7 @@ const Hero = () => {
               className="border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group backdrop-blur-sm bg-white/80"
             >
               <Mail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span>Get in Touch</span>
+              <span>Let's Collaborate</span>
             </Button>
             
             <Button 
@@ -95,7 +122,7 @@ const Hero = () => {
               className="text-gray-600 hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group hover:bg-blue-50"
             >
               <Download className="mr-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-              <span>Download CV</span>
+              <span>Download Resume</span>
             </Button>
           </div>
 

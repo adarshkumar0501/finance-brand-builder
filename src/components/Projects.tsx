@@ -8,34 +8,34 @@ import { TrendingUp, BarChart3, Building2, Coins } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: 'Obesity Level Estimation with ML',
-      description: 'Developed a machine learning model to predict obesity levels using physical and lifestyle data, achieving high accuracy in health risk assessment.',
+      title: 'Obesity Prediction Using ML',
+      description: 'Developed a comprehensive machine learning model to predict obesity levels using physical characteristics and lifestyle data, achieving high accuracy in health risk assessment and providing actionable insights.',
       icon: BarChart3,
-      tags: ['Machine Learning', 'Health Analytics', 'Python', 'Data Science'],
+      tags: ['Machine Learning', 'Health Analytics', 'Python', 'Data Science', 'Predictive Modeling'],
       color: 'bg-blue-500',
       category: 'Data Analysis'
     },
     {
-      title: 'Sector-Specific vs Diversified Investments',
-      description: 'Conducted a comprehensive 15-day real-time performance comparison between sector-focused and diversified investment portfolios.',
+      title: 'IT Sector Portfolio vs Diversified',
+      description: 'Conducted an extensive risk-return analysis comparing sector-focused IT investments against diversified portfolios, providing insights into portfolio optimization and risk management strategies.',
       icon: TrendingUp,
-      tags: ['Portfolio Analysis', 'Investment Research', 'Market Analysis'],
+      tags: ['Portfolio Analysis', 'Risk Assessment', 'Investment Strategy', 'Sector Analysis'],
       color: 'bg-green-500',
       category: 'Investment Research'
     },
     {
-      title: 'NPA in Indian Banking',
-      description: 'In-depth research analysis on Non-Performing Assets in the Indian banking sector, examining causes, trends, and recovery strategies.',
+      title: 'NPA in Indian Banks (Post-COVID)',
+      description: 'Comprehensive sectoral financial study analyzing Non-Performing Assets in Indian banking sector post-COVID, examining recovery patterns, sectoral impacts, and strategic recommendations.',
       icon: Building2,
-      tags: ['Banking Research', 'Financial Analysis', 'Risk Assessment'],
+      tags: ['Banking Research', 'Post-COVID Analysis', 'Financial Recovery', 'Sectoral Study'],
       color: 'bg-red-500',
       category: 'Banking Research'
     },
     {
-      title: 'MCX Commodity Trading Report',
-      description: 'Comprehensive analysis of Multi Commodity Exchange structure, participants, market risks, and trading strategies.',
+      title: 'MCX Commodity Trading Analysis',
+      description: 'In-depth analysis of Multi Commodity Exchange market structure, participant behavior, risk assessment, and trading functionality with strategic recommendations for market participants.',
       icon: Coins,
-      tags: ['Commodity Trading', 'Market Structure', 'Risk Analysis'],
+      tags: ['Commodity Trading', 'Market Structure', 'Risk Analysis', 'Trading Strategies'],
       color: 'bg-orange-500',
       category: 'Market Research'
     }
@@ -48,7 +48,7 @@ const Projects = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my analytical work spanning machine learning, investment research, and financial analysis.
+            A comprehensive showcase of analytical work spanning machine learning, investment research, and financial analysis across diverse sectors.
           </p>
         </div>
 
