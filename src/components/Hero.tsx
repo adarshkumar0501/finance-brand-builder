@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Mail, Phone, Linkedin } from 'lucide-react';
@@ -36,11 +37,6 @@ const Hero = () => {
                   />
                 </div>
               </div>
-              
-              {/* Floating badge */}
-              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce">
-                ✨ Top 5% Student
-              </div>
             </div>
           </div>
 
@@ -60,10 +56,13 @@ const Hero = () => {
               </div>
             </div>
             
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              BBA Finance Student from <span className="font-semibold text-blue-600">Vivekananda Global University, Jaipur</span>, 
-              ranked in the <span className="font-bold text-emerald-600">top 5% among 250+ peers</span>. 
-              Currently interning at <span className="font-semibold text-indigo-600">Jalvayu.co</span> with multiple certifications in financial analysis and markets.
+            <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              I'm Adarsh Kumar — a BBA (Finance) student at VGU, Jaipur, passionate about financial analysis, 
+              investment strategy, and business research. I've worked as a Founder's Assistant at Jalvayu.co, 
+              where I contributed to financial content development, strategic planning, and digital growth initiatives. 
+              Skilled in FM&V, Excel, data analysis, financial modeling, and market research, I'm now looking 
+              forward to growth-focused opportunities where I can apply and expand my finance expertise in 
+              dynamic, real-world environments.
             </p>
           </div>
 
