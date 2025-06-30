@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Mail, Phone, Linkedin } from 'lucide-react';
@@ -57,7 +56,7 @@ const Hero = () => {
                 <span className="text-gray-400">|</span>
                 <span>Data-Driven Analyst</span>
                 <span className="text-gray-400">|</span>
-                <span>Future Leader</span>
+                <span>Aspirant Financial Analyst</span>
               </div>
             </div>
             
