@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -35,6 +34,20 @@ const Services = () => {
       color: 'bg-orange-500'
     }
   ];
+
+  const handleStartProject = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGetQuote = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="services" className="py-20 bg-slate-50">
@@ -73,6 +86,7 @@ const Services = () => {
                   </ul>
                   
                   <Button 
+                    onClick={handleGetQuote}
                     className="w-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
                   >
                     Get Quote
@@ -90,7 +104,7 @@ const Services = () => {
             Let's discuss your financial analysis needs and how I can help you make data-driven decisions.
           </p>
           <Button 
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={handleStartProject}
             size="lg" 
             className="bg-blue-600 hover:bg-blue-700 px-8 py-3 text-lg transition-all duration-200 hover:scale-105"
           >
