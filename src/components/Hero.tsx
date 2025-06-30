@@ -24,17 +24,17 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
-          {/* Enhanced Profile Image with modern styling */}
+          {/* Enhanced Profile Image with actual photo */}
           <div className="mb-12 animate-fade-in">
             <div className="relative w-56 h-56 mx-auto">
               {/* Animated ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 p-1 animate-pulse">
                 <div className="w-full h-full rounded-full bg-white p-2">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden shadow-2xl">
-                    <div className="w-40 h-40 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
-                      <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AK</span>
-                    </div>
-                  </div>
+                  <img 
+                    src="https://i.postimg.cc/SRmXpgJ3/Adarsh-Kumar.jpg"
+                    alt="Adarsh Kumar - Professional Photo"
+                    className="w-full h-full rounded-full object-cover shadow-2xl"
+                  />
                 </div>
               </div>
               

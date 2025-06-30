@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Calendar, User, Phone, Linkedin, MapPin } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,7 +25,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -36,18 +38,43 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_lwghpoh', // Service ID
+        'template_kkkweml', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Adarsh Kumar'
+        },
+        'qNsXiO1na7VEZExFS' // Public Key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -182,6 +209,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Your full name"
                       className="w-full"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -197,6 +225,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
                       className="w-full"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -212,14 +241,16 @@ const Contact = () => {
                       placeholder="Tell me about your project, collaboration idea, or question..."
                       rows={5}
                       className="w-full"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <Button 
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg transition-all duration-200 hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
