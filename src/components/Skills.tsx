@@ -1,45 +1,56 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, FileText, Briefcase, Calculator, TrendingUp, PieChart, Clock, MessageSquare, Target, Lightbulb } from 'lucide-react';
+import { BarChart3, FileText, Briefcase, Calculator, TrendingUp, PieChart, Clock, MessageSquare, Target, Lightbulb, FileChartLine, FileSearch } from 'lucide-react';
 
 const Skills = () => {
   const hardSkills = [
     {
-      name: 'Financial Modeling (Excel)',
+      name: 'Financial Modeling & Valuation (Excel)',
       level: 90,
       icon: Calculator,
       color: 'bg-blue-500'
     },
     {
-      name: 'Valuation (DCF, Ratio Analysis)',
+      name: 'DCF & Ratio Analysis',
       level: 85,
       icon: TrendingUp,
       color: 'bg-green-500'
     },
     {
-      name: 'Financial Reporting',
+      name: 'Financial Reporting & Analysis',
       level: 88,
-      icon: FileText,
+      icon: FileChartLine,
       color: 'bg-purple-500'
     },
     {
-      name: 'Data Analysis',
+      name: 'Advanced Data Analysis & Visualization',
       level: 82,
       icon: PieChart,
       color: 'bg-orange-500'
     },
     {
-      name: 'Research',
+      name: 'Investment Research & Market Analysis',
       level: 85,
-      icon: Briefcase,
+      icon: FileSearch,
       color: 'bg-red-500'
     },
     {
-      name: 'Canva Design',
-      level: 78,
-      icon: BarChart3,
+      name: 'Business Intelligence & Reporting',
+      level: 80,
+      icon: FileText,
       color: 'bg-indigo-500'
+    },
+    {
+      name: 'Strategic Planning & Analysis',
+      level: 78,
+      icon: Briefcase,
+      color: 'bg-emerald-500'
+    },
+    {
+      name: 'Digital Content & Design (Canva)',
+      level: 75,
+      icon: BarChart3,
+      color: 'bg-cyan-500'
     }
   ];
 
@@ -114,7 +125,7 @@ const Skills = () => {
           {/* Hard Skills */}
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Hard Skills</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {hardSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
