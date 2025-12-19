@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Mail, Phone, Linkedin } from 'lucide-react';
+import { ArrowDown, Download, Linkedin, ExternalLink } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const element = document.querySelector('#about');
+  const scrollToProjects = () => {
+    const element = document.querySelector('#projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -13,128 +12,101 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-100/30"></div>
+      {/* Clean finance aesthetic background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white"></div>
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-32 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-gradient-to-br from-emerald-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
+      }}></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
-          {/* Enhanced Profile Image with actual photo */}
-          <div className="mb-12 animate-fade-in">
-            <div className="relative w-56 h-56 mx-auto">
-              {/* Animated ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 p-1 animate-pulse">
-                <div className="w-full h-full rounded-full bg-white p-2">
+          {/* Profile Image */}
+          <div className="mb-10">
+            <div className="relative w-40 h-40 mx-auto">
+              <div className="absolute inset-0 rounded-full bg-slate-200 p-0.5">
+                <div className="w-full h-full rounded-full bg-white p-1">
                   <img 
                     src="https://i.postimg.cc/SRmXpgJ3/Adarsh-Kumar.jpg"
-                    alt="Adarsh Kumar - Professional Photo"
-                    className="w-full h-full rounded-full object-cover shadow-2xl"
+                    alt="Adarsh Kumar - Financial Analyst"
+                    className="w-full h-full rounded-full object-cover"
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Enhanced main content */}
-          <div className="animate-fade-in space-y-6" style={{ animationDelay: '0.2s' }}>
+          {/* Main content */}
+          <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
                 Adarsh Kumar
               </h1>
-              <div className="flex items-center justify-center space-x-2 text-xl md:text-2xl text-gray-600">
-                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                <span>Finance Enthusiast</span>
-                <span className="text-gray-400">|</span>
-                <span>Data-Driven Analyst</span>
-                <span className="text-gray-400">|</span>
-                <span>Aspirant Financial Analyst</span>
-              </div>
+              <p className="text-xl md:text-2xl text-slate-600 font-medium">
+                Entry-Level Financial Analyst | Valuation, Equity Research & Financial Analysis
+              </p>
             </div>
             
-            <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              I'm Adarsh Kumar — a BBA (Finance) student at VGU, Jaipur, passionate about financial analysis, 
-              investment strategy, and business research. I've worked as a Founder's Assistant at Jalvayu.co, 
-              where I contributed to financial content development, strategic planning, and digital growth initiatives. 
-              Skilled in FM&V, Excel, data analysis, financial modeling, and market research, I'm now looking 
-              forward to growth-focused opportunities where I can apply and expand my finance expertise in 
-              dynamic, real-world environments.
-            </p>
+            {/* Two-line subheadline */}
+            <div className="max-w-3xl mx-auto space-y-2">
+              <p className="text-lg text-slate-600">
+                BBA (Finance) student with hands-on experience in financial modeling, valuation, and market research.
+              </p>
+              <p className="text-lg text-slate-600">
+                Founder's Assistant experience supporting strategy and data-driven decision-making.
+              </p>
+            </div>
           </div>
 
-          {/* Contact info quick links */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <a 
-              href="mailto:adarshkumar05012002@gmail.com"
-              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-blue-600"
-            >
-              <Mail className="w-4 h-4" />
-              <span className="text-sm font-medium">Email</span>
-            </a>
-            <a 
-              href="tel:+918789211917"
-              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-green-600"
-            >
-              <Phone className="w-4 h-4" />
-              <span className="text-sm font-medium">+91 8789211917</span>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/adarshkumar-"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-gray-700 hover:text-blue-500"
-            >
-              <Linkedin className="w-4 h-4" />
-              <span className="text-sm font-medium">LinkedIn</span>
-            </a>
-          </div>
-
-          {/* Enhanced CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mt-12" style={{ animationDelay: '0.4s' }}>
+          {/* CTA buttons - Clean and professional */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            {/* Primary CTA */}
             <Button 
-              onClick={scrollToAbout}
               size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-3 text-base font-medium rounded-lg transition-colors duration-200"
             >
-              <span>View My Work</span>
-              <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+              <Download className="mr-2 w-5 h-5" />
+              Download Resume
             </Button>
             
+            {/* Secondary CTAs */}
             <Button 
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToProjects}
               variant="outline" 
               size="lg" 
-              className="border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group backdrop-blur-sm bg-white/80"
+              className="border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50 px-8 py-3 text-base font-medium rounded-lg transition-colors duration-200"
             >
-              <Mail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span>Let's Collaborate</span>
+              <ExternalLink className="mr-2 w-5 h-5" />
+              View Projects
             </Button>
             
             <Button 
-              variant="ghost"
+              asChild
+              variant="outline"
               size="lg" 
-              className="text-gray-600 hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 group hover:bg-blue-50"
+              className="border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50 px-8 py-3 text-base font-medium rounded-lg transition-colors duration-200"
             >
-              <Download className="mr-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-              <span>Download Resume</span>
+              <a 
+                href="https://www.linkedin.com/in/adarshkumar-"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="mr-2 w-5 h-5" />
+                LinkedIn Profile
+              </a>
             </Button>
           </div>
 
-          {/* Enhanced scroll indicator */}
-          <div className="mt-20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          {/* Scroll indicator */}
+          <div className="mt-16">
             <button 
-              onClick={scrollToAbout}
-              className="group inline-flex flex-col items-center text-gray-500 hover:text-blue-600 transition-all duration-300"
+              onClick={scrollToProjects}
+              className="inline-flex flex-col items-center text-slate-400 hover:text-slate-600 transition-colors duration-200"
             >
-              <span className="text-sm font-medium mb-2 opacity-70 group-hover:opacity-100">Scroll to explore</span>
-              <div className="relative">
-                <ArrowDown className="w-6 h-6 animate-bounce group-hover:translate-y-1 transition-transform duration-300" />
-                <div className="absolute inset-0 w-6 h-6 bg-blue-500/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-300"></div>
-              </div>
+              <span className="text-sm font-medium mb-2">Explore</span>
+              <ArrowDown className="w-5 h-5" />
             </button>
           </div>
         </div>
