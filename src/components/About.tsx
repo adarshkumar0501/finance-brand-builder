@@ -64,7 +64,7 @@ const About = () => {
 
             <Card className="hover:shadow-lg transition-shadow duration-200">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Experience in Intern</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Current Role</h3>
                 <div className="space-y-2">
                   <p className="font-medium text-indigo-600">Founder Assistant</p>
                   <p className="text-gray-600">Jalvayu.co</p>
