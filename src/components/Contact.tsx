@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Calendar, User, Phone, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Download, MapPin } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
@@ -28,7 +27,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all fields",
@@ -41,35 +39,29 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Send email using EmailJS
       await emailjs.send(
-        'service_lwghpoh', // Service ID
-        'template_kkkweml', // Template ID
+        'service_lwghpoh',
+        'template_kkkweml',
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_name: 'Adarsh Kumar'
         },
-        'qNsXiO1na7VEZExFS' // Public Key
+        'qNsXiO1na7VEZExFS'
       );
 
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Message sent",
+        description: "Thank you for reaching out. I'll respond within 24 hours.",
       });
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('EmailJS Error:', error);
       toast({
         title: "Failed to send message",
-        description: "There was an error sending your message. Please try again or contact me directly.",
+        description: "Please try again or reach out via email directly.",
         variant: "destructive"
       });
     } finally {
@@ -77,194 +69,183 @@ const Contact = () => {
     }
   };
 
+  const contactLinks = [
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/adarshkumar-',
+      href: 'https://www.linkedin.com/in/adarshkumar-',
+      primary: true
+    },
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'adarshkumar05012002@gmail.com',
+      href: 'mailto:adarshkumar05012002@gmail.com'
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '+91 8789211917',
+      href: 'tel:+918789211917'
+    },
+    {
+      icon: MapPin,
+      label: 'Location',
+      value: 'Jaipur, Rajasthan',
+      href: null
+    }
+  ];
+
   return (
     <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Let's Connect</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ready to discuss your next financial analysis project or explore collaboration opportunities? I'd love to hear from you.
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-slate-900 mb-4">Get in Touch</h2>
+          <div className="w-16 h-0.5 bg-slate-300 mx-auto mb-4"></div>
+          <p className="text-slate-600 max-w-xl mx-auto">
+            Connect for opportunities, analytical projects, or discussions.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <p className="text-lg text-gray-600 mb-8">
-                Whether you need financial analysis, investment research, academic support, or want to discuss 
-                potential collaborations, I'm here to help you make informed decisions with data-driven insights.
-              </p>
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Contact Links */}
+          <div className="space-y-6">
+            {/* Quick Actions */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button 
+                asChild
+                className="bg-slate-900 hover:bg-slate-800 text-white flex-1"
+              >
+                <a 
+                  href="https://www.linkedin.com/in/adarshkumar-"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  Connect on LinkedIn
+                </a>
+              </Button>
+              <Button 
+                variant="outline"
+                className="border-slate-200 text-slate-700 hover:bg-slate-50 flex-1"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Download Resume
+              </Button>
             </div>
 
-            <div className="space-y-4">
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-blue-100 rounded-lg">
-                      <Mail className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
-                      <a 
-                        href="mailto:adarshkumar05012002@gmail.com"
-                        className="text-blue-600 hover:text-blue-800 transition-colors"
-                      >
-                        adarshkumar05012002@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Contact Details */}
+            <div className="space-y-3">
+              {contactLinks.map((link) => {
+                const Icon = link.icon;
+                const content = (
+                  <Card className="border-slate-200 hover:shadow-sm transition-shadow duration-200">
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-4">
+                        <div className="p-2 bg-slate-100 rounded-lg">
+                          <Icon className="w-5 h-5 text-slate-600" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-slate-500">{link.label}</p>
+                          <p className="text-slate-700 font-medium">{link.value}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
 
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-green-100 rounded-lg">
-                      <Phone className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <a 
-                        href="tel:+918789211917"
-                        className="text-green-600 hover:text-green-800 transition-colors"
-                      >
-                        +91 8789211917
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-blue-100 rounded-lg">
-                      <Linkedin className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">LinkedIn</h4>
-                      <a 
-                        href="https://www.linkedin.com/in/adarshkumar-"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 transition-colors"
-                      >
-                        linkedin.com/in/adarshkumar-
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-purple-100 rounded-lg">
-                      <MapPin className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Location</h4>
-                      <p className="text-gray-600">Jaipur, Rajasthan</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow duration-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-orange-100 rounded-lg">
-                      <Calendar className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Response Time</h4>
-                      <p className="text-gray-600">Within 24 hours</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                return link.href ? (
+                  <a 
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="block"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={link.label}>{content}</div>
+                );
+              })}
             </div>
           </div>
 
           {/* Contact Form */}
-          <div>
-            <Card className="shadow-xl border-0">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Send a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      className="w-full"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      className="w-full"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project, collaboration idea, or question..."
-                      rows={5}
-                      className="w-full"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit"
+          <Card className="border-slate-200">
+            <CardHeader>
+              <CardTitle className="text-xl text-slate-900">Send a Message</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your name"
+                    className="border-slate-200"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="your.email@example.com"
+                    className="border-slate-200"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="How can I help?"
+                    rows={4}
+                    className="border-slate-200"
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="mt-20 pt-8 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mt-16 pt-8 border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-gray-600">
-              © 2024 Adarsh Kumar. Finance Enthusiast & Data-Driven Analyst | Top 5% BBA Finance Student.
+            <p className="text-sm text-slate-500">
+              © 2024 Adarsh Kumar. Financial Analyst | BBA Finance.
             </p>
           </div>
         </div>

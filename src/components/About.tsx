@@ -1,89 +1,81 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Calendar, Briefcase, Award } from 'lucide-react';
+import { Target } from 'lucide-react';
 
 const About = () => {
+  const analyticalExposure = [
+    'Financial modeling and DCF valuation',
+    'Ratio and financial statement analysis',
+    'Sector and equity research',
+    'Data-driven decision support'
+  ];
+
   return (
     <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-slate-900 mb-4">About</h2>
+          <div className="w-16 h-0.5 bg-slate-300 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-              <h3 className="text-lg font-bold text-blue-800 mb-2">About Me</h3>
-              <p className="text-blue-700 leading-relaxed">
-                I'm Adarsh Kumar — a BBA (Finance) student at VGU, Jaipur, passionate about financial analysis, 
-                investment strategy, and business research. I've worked as a Founder's Assistant at Jalvayu.co, 
-                where I contributed to financial content development, strategic planning, and digital growth initiatives.
-              </p>
-            </div>
-            
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Skilled in FM&V, Excel, data analysis, financial modeling, and market research, I'm now looking 
-              forward to growth-focused opportunities where I can apply and expand my finance expertise in 
-              dynamic, real-world environments.
+        <div className="space-y-8">
+          {/* Professional Summary */}
+          <div className="text-center">
+            <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              BBA Finance student at VGU, Jaipur with practical experience in financial analysis and strategic operations. 
+              Currently supporting strategic initiatives as Founder's Assistant at Jalvayu.co.
             </p>
-            
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Currently serving as a <span className="font-semibold text-indigo-600">Founder Assistant at Jalvayu.co</span>, 
-              I gain entrepreneurial exposure while contributing to strategic operations and business development initiatives.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              <div className="flex items-center space-x-2 text-blue-600">
-                <Calendar className="w-5 h-5" />
-                <span className="font-medium">BBA Finance Student</span>
-              </div>
-              <div className="flex items-center space-x-2 text-green-600">
-                <Briefcase className="w-5 h-5" />
-                <span className="font-medium">Founder Assistant at Jalvayu.co</span>
-              </div>
-              <div className="flex items-center space-x-2 text-purple-600">
-                <Award className="w-5 h-5" />
-                <span className="font-medium">Finance Enthusiast</span>
-              </div>
-            </div>
           </div>
 
-          <div className="space-y-6">
-            <Card className="hover:shadow-lg transition-shadow duration-200">
+          {/* Analytical Exposure */}
+          <Card className="border-slate-200">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-semibold text-slate-900 mb-6">Analytical Exposure</h3>
+              <ul className="grid md:grid-cols-2 gap-4">
+                {analyticalExposure.map((item, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                    <span className="text-slate-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Education & Experience */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="border-slate-200">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Education</h3>
-                <div className="space-y-2">
-                  <p className="font-medium text-blue-600">BBA in Finance</p>
-                  <p className="text-gray-600">Vivekananda Global University, Jaipur</p>
-                  <p className="text-sm text-gray-500">2023 – 2026</p>
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">Education</h3>
+                <div className="space-y-1">
+                  <p className="font-medium text-slate-700">BBA in Finance</p>
+                  <p className="text-slate-600 text-sm">Vivekananda Global University, Jaipur</p>
+                  <p className="text-slate-500 text-sm">2023 – 2026</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow duration-200">
+            <Card className="border-slate-200">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Experience</h3>
-                <div className="space-y-2">
-                  <p className="font-medium text-indigo-600">Founder Assistant</p>
-                  <p className="text-gray-600">Jalvayu.co</p>
-                  <p className="text-sm text-gray-500">Financial content, strategic planning & digital growth</p>
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">Experience</h3>
+                <div className="space-y-1">
+                  <p className="font-medium text-slate-700">Founder's Assistant</p>
+                  <p className="text-slate-600 text-sm">Jalvayu.co</p>
+                  <p className="text-slate-500 text-sm">Strategy, financial content & data analysis</p>
                 </div>
               </CardContent>
             </Card>
+          </div>
 
-            <Card className="hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Key Skills</h3>
-                <div className="space-y-2">
-                  <p className="text-gray-600">• Financial Modeling & Valuation (FM&V)</p>
-                  <p className="text-gray-600">• Excel & Data Analysis</p>
-                  <p className="text-gray-600">• Market Research & Investment Strategy</p>
-                  <p className="text-sm text-gray-500">Applied in real-world business environments</p>
-                </div>
-              </CardContent>
-            </Card>
+          {/* Career Direction */}
+          <div className="bg-slate-50 rounded-lg p-6 text-center">
+            <div className="flex items-center justify-center space-x-2 mb-3">
+              <Target className="w-5 h-5 text-slate-600" />
+              <h3 className="text-lg font-semibold text-slate-900">Career Direction</h3>
+            </div>
+            <p className="text-slate-600">
+              Seeking internships or entry-level roles in Financial Analysis, Equity Research, or Corporate Finance.
+            </p>
           </div>
         </div>
       </div>

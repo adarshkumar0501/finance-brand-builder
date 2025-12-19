@@ -1,145 +1,86 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, FileText, Briefcase, Calculator, TrendingUp, PieChart, Clock, MessageSquare, Target, Lightbulb, FileChartLine, FileSearch } from 'lucide-react';
+import { Calculator, TrendingUp, FileSearch, FileText, BarChart3 } from 'lucide-react';
 
 const Skills = () => {
-  const hardSkills = [
+  const technicalSkills = [
     {
-      name: 'Financial Modeling & Valuation (Excel)',
-      level: 90,
+      title: 'Financial Modeling & Valuation',
       icon: Calculator,
-      color: 'bg-blue-500'
+      points: ['3-statement models', 'DCF valuation', 'Sensitivity analysis']
     },
     {
-      name: 'DCF & Ratio Analysis',
-      level: 85,
+      title: 'Financial Statement & Ratio Analysis',
       icon: TrendingUp,
-      color: 'bg-green-500'
+      points: ['Liquidity & solvency ratios', 'Profitability metrics', 'Trend analysis']
     },
     {
-      name: 'Financial Reporting & Analysis',
-      level: 88,
-      icon: FileChartLine,
-      color: 'bg-purple-500'
-    },
-    {
-      name: 'Advanced Data Analysis & Visualization',
-      level: 82,
-      icon: PieChart,
-      color: 'bg-orange-500'
-    },
-    {
-      name: 'Investment Research & Market Analysis',
-      level: 85,
+      title: 'Equity & Market Research',
       icon: FileSearch,
-      color: 'bg-red-500'
+      points: ['Sector analysis', 'Competitive positioning', 'Investment thesis development']
     },
     {
-      name: 'Business Intelligence & Reporting',
-      level: 80,
+      title: 'Financial Reporting & Analysis',
       icon: FileText,
-      color: 'bg-indigo-500'
+      points: ['Performance reports', 'Variance analysis', 'Executive summaries']
     },
     {
-      name: 'Strategic Planning & Analysis',
-      level: 78,
-      icon: Briefcase,
-      color: 'bg-emerald-500'
-    },
-    {
-      name: 'Digital Content & Design (Canva)',
-      level: 75,
+      title: 'Data Analysis & Visualization',
       icon: BarChart3,
-      color: 'bg-cyan-500'
+      points: ['Excel (Advanced)', 'Data interpretation', 'Dashboard development']
     }
   ];
 
-  const softSkills = [
-    {
-      name: 'Time Management',
-      level: 90,
-      icon: Clock,
-      color: 'bg-emerald-500'
-    },
-    {
-      name: 'Problem-Solving',
-      level: 88,
-      icon: Lightbulb,
-      color: 'bg-yellow-500'
-    },
-    {
-      name: 'Critical Thinking',
-      level: 85,
-      icon: Target,
-      color: 'bg-pink-500'
-    },
-    {
-      name: 'Communication & Report Writing',
-      level: 87,
-      icon: MessageSquare,
-      color: 'bg-cyan-500'
-    }
-  ];
-
-  const SkillCard = ({ skill, index }) => {
-    const Icon = skill.icon;
-    return (
-      <Card key={skill.name} className="hover:shadow-lg transition-all duration-300 hover:scale-105">
-        <CardContent className="p-6">
-          <div className="flex items-center mb-4">
-            <div className={`p-3 rounded-lg ${skill.color.replace('bg-', 'bg-opacity-10 bg-')} mr-4`}>
-              <Icon className={`w-6 h-6 ${skill.color.replace('bg-', 'text-')}`} />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
-          </div>
-          
-          <div className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">Proficiency</span>
-              <span className="text-sm font-medium text-gray-900">{skill.level}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className={`h-2 rounded-full ${skill.color} transition-all duration-1000`}
-                style={{ width: `${skill.level}%` }}
-              ></div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  };
+  const softSkills = ['Analytical Thinking', 'Problem-Solving', 'Communication', 'Time Management'];
 
   return (
     <section id="skills" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A comprehensive skill set combining technical financial expertise with essential soft skills for professional success.
-          </p>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-slate-900 mb-4">Skills & Expertise</h2>
+          <div className="w-16 h-0.5 bg-slate-300 mx-auto"></div>
         </div>
 
-        <div className="space-y-12">
-          {/* Hard Skills */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Hard Skills</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {hardSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
-          </div>
+        {/* Technical Skills */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {technicalSkills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <Card key={skill.title} className="border-slate-200 hover:shadow-md transition-shadow duration-200">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 bg-slate-100 rounded-lg mr-3">
+                      <Icon className="w-5 h-5 text-slate-600" />
+                    </div>
+                    <h3 className="font-semibold text-slate-900 text-sm">{skill.title}</h3>
+                  </div>
+                  
+                  <ul className="space-y-2">
+                    {skill.points.map((point, idx) => (
+                      <li key={idx} className="flex items-start space-x-2">
+                        <div className="w-1 h-1 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-sm text-slate-600">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-          {/* Soft Skills */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Soft Skills</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {softSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
-              ))}
-            </div>
+        {/* Soft Skills - Secondary */}
+        <div className="text-center">
+          <p className="text-sm text-slate-500 mb-3">Supporting Skills</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {softSkills.map((skill) => (
+              <span 
+                key={skill} 
+                className="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-600"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </div>
