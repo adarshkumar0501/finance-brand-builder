@@ -33,13 +33,13 @@ const Navigation = () => {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       isScrolled 
-        ? "bg-white/95 backdrop-blur-sm shadow-lg" 
+        ? "bg-background/95 backdrop-blur-sm shadow-lg border-b border-border" 
         : "bg-transparent"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-xl font-semibold text-slate-900">AK</span>
+            <span className="text-xl font-semibold text-primary">AK</span>
           </div>
           
           <div className="hidden md:block">
@@ -48,7 +48,7 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-slate-600 hover:text-slate-900 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                  className="text-muted-foreground hover:text-primary px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
                 </button>
