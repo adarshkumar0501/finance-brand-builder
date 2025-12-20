@@ -62,6 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Finance-specific colors
+				finance: {
+					blue: 'hsl(var(--finance-blue))',
+					'blue-light': 'hsl(var(--finance-blue-light))',
+					teal: 'hsl(var(--finance-teal))',
+					'teal-light': 'hsl(var(--finance-teal-light))',
+					navy: 'hsl(var(--finance-navy))',
+					slate: 'hsl(var(--finance-slate))',
+					light: 'hsl(var(--finance-light))'
 				}
 			},
 			borderRadius: {

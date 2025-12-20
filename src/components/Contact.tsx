@@ -98,12 +98,15 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gradient-to-b from-background to-primary/5 relative">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 finance-grid opacity-50"></div>
+      
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold text-slate-900 mb-4">Get in Touch</h2>
-          <div className="w-16 h-0.5 bg-slate-300 mx-auto mb-4"></div>
-          <p className="text-slate-600 max-w-xl mx-auto">
+          <h2 className="text-3xl font-semibold text-primary mb-4">Get in Touch</h2>
+          <div className="w-16 h-0.5 bg-accent mx-auto mb-4"></div>
+          <p className="text-muted-foreground max-w-xl mx-auto">
             Connect for opportunities, analytical projects, or discussions.
           </p>
         </div>
@@ -115,7 +118,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <Button 
                 asChild
-                className="bg-slate-900 hover:bg-slate-800 text-white flex-1"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1"
               >
                 <a 
                   href="https://www.linkedin.com/in/adarshkumar-"
@@ -128,7 +131,7 @@ const Contact = () => {
               </Button>
               <Button 
                 variant="outline"
-                className="border-slate-200 text-slate-700 hover:bg-slate-50 flex-1"
+                className="border-accent/30 text-accent hover:bg-accent/5 hover:border-accent flex-1"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
@@ -137,18 +140,21 @@ const Contact = () => {
 
             {/* Contact Details */}
             <div className="space-y-3">
-              {contactLinks.map((link) => {
+              {contactLinks.map((link, index) => {
                 const Icon = link.icon;
+                const isAccent = index % 2 === 1;
                 const content = (
-                  <Card className="border-slate-200 hover:shadow-sm transition-shadow duration-200">
+                  <Card className={`border-border bg-card hover:shadow-sm transition-all duration-200 ${
+                    isAccent ? 'hover:border-accent/30' : 'hover:border-primary/30'
+                  }`}>
                     <CardContent className="p-4">
                       <div className="flex items-center space-x-4">
-                        <div className="p-2 bg-slate-100 rounded-lg">
-                          <Icon className="w-5 h-5 text-slate-600" />
+                        <div className={`p-2 rounded-lg ${isAccent ? 'bg-accent/10' : 'bg-primary/10'}`}>
+                          <Icon className={`w-5 h-5 ${isAccent ? 'text-accent' : 'text-primary'}`} />
                         </div>
                         <div>
-                          <p className="text-sm text-slate-500">{link.label}</p>
-                          <p className="text-slate-700 font-medium">{link.value}</p>
+                          <p className="text-sm text-muted-foreground">{link.label}</p>
+                          <p className="text-foreground font-medium">{link.value}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -173,14 +179,14 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="border-slate-200">
+          <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle className="text-xl text-slate-900">Send a Message</CardTitle>
+              <CardTitle className="text-xl text-foreground">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1.5">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
                     Name
                   </label>
                   <Input
@@ -190,13 +196,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your name"
-                    className="border-slate-200"
+                    className="border-border focus:border-primary focus:ring-primary"
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1.5">
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
                     Email
                   </label>
                   <Input
@@ -206,13 +212,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
-                    className="border-slate-200"
+                    className="border-border focus:border-primary focus:ring-primary"
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1.5">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
                     Message
                   </label>
                   <Textarea
@@ -222,7 +228,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="How can I help?"
                     rows={4}
-                    className="border-slate-200"
+                    className="border-border focus:border-primary focus:ring-primary"
                     disabled={isSubmitting}
                   />
                 </div>
@@ -230,7 +236,7 @@ const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-slate-900 hover:bg-slate-800 text-white"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
@@ -241,10 +247,10 @@ const Contact = () => {
       </div>
 
       {/* Footer */}
-      <div className="mt-16 pt-8 border-t border-slate-200">
+      <div className="mt-16 pt-8 border-t border-border relative z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-muted-foreground">
               © 2024 Adarsh Kumar. Financial Analyst | BBA Finance.
             </p>
           </div>
