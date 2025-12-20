@@ -6,28 +6,28 @@ import { Calculator, TrendingUp, FileText, BarChart3, MessageSquare, FileSearch 
 const Services = () => {
   const capabilities = [
     {
-      title: 'Financial Modeling & Valuation',
-      description: 'Building financial models and performing DCF valuations for business analysis and investment decisions.',
-      icon: Calculator,
-      features: ['3-Statement Models', 'DCF Analysis', 'Sensitivity Testing', 'Scenario Planning']
-    },
-    {
-      title: 'Ratio & Performance Analysis',
-      description: 'Comprehensive financial statement analysis to assess company performance and financial health.',
-      icon: TrendingUp,
-      features: ['Liquidity Analysis', 'Profitability Metrics', 'Efficiency Ratios', 'Trend Analysis']
-    },
-    {
-      title: 'Sector & Equity Research',
-      description: 'Industry analysis and equity research to support investment thesis development.',
-      icon: FileSearch,
-      features: ['Industry Analysis', 'Competitive Analysis', 'Market Sizing', 'Investment Thesis']
-    },
-    {
-      title: 'Report & Dashboard Development',
-      description: 'Creating professional financial reports and visual dashboards for data presentation.',
+      title: 'Financial Reporting',
+      description: 'Preparing structured financial reports with clear insights for stakeholders and decision-makers.',
       icon: FileText,
-      features: ['Executive Reports', 'Data Visualization', 'Performance Dashboards', 'Presentation Design']
+      features: ['Financial Statement Preparation', 'Management Reporting', 'Variance Analysis', 'Executive Summaries']
+    },
+    {
+      title: 'Financial Analysis',
+      description: 'Analyzing financial data to identify trends, assess performance, and support strategic decisions.',
+      icon: TrendingUp,
+      features: ['Ratio Analysis', 'Trend Identification', 'Performance Benchmarking', 'Financial Health Assessment']
+    },
+    {
+      title: 'Valuation & Research',
+      description: 'Conducting fundamental analysis and valuation to support investment and business decisions.',
+      icon: Calculator,
+      features: ['DCF Valuation', 'Comparable Analysis', 'Industry Research', 'Investment Thesis Development']
+    },
+    {
+      title: 'Data Analysis & Visualization',
+      description: 'Transforming financial data into actionable insights through analysis and visual presentation.',
+      icon: BarChart3,
+      features: ['Data Modeling', 'Dashboard Development', 'KPI Tracking', 'Visual Reporting']
     }
   ];
 
@@ -45,7 +45,7 @@ const Services = () => {
           <h2 className="text-3xl font-semibold text-slate-900 mb-4">Analytical Capabilities</h2>
           <div className="w-16 h-0.5 bg-slate-300 mx-auto mb-4"></div>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Practical skills developed through academic projects and professional experience, available for collaborative work.
+            Core competencies developed through academic training and hands-on experience in financial analysis and research.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const Services = () => {
                       className="flex-1 text-slate-600 border-slate-200 hover:bg-slate-50"
                     >
                       <FileSearch className="w-4 h-4 mr-2" />
-                      View Sample Work
+                      View Projects
                     </Button>
                     <Button 
                       onClick={handleDiscuss}
@@ -90,7 +90,7 @@ const Services = () => {
                       className="flex-1 text-slate-600 border-slate-200 hover:bg-slate-50"
                     >
                       <MessageSquare className="w-4 h-4 mr-2" />
-                      Discuss Use Case
+                      Connect
                     </Button>
                   </div>
                 </CardContent>
@@ -101,8 +101,8 @@ const Services = () => {
 
         {/* Disclaimer */}
         <div className="text-center">
-          <p className="text-sm text-slate-500 italic">
-            Academic and analytical support only. Not investment advice.
+          <p className="text-sm text-slate-500">
+            Open to internships, entry-level roles, and analytical collaborations.
           </p>
         </div>
       </div>
