@@ -48,7 +48,7 @@ const Contact = () => {
           message: formData.message,
           to_name: 'Adarsh Kumar'
         },
-        'qNsXiO1na7VEZExFS'
+        'qNsXIO1na7VEZEXFS'
       );
 
       toast({
