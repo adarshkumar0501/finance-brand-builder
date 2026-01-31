@@ -1,20 +1,33 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, GraduationCap, Briefcase, Calculator, TrendingUp, FileSearch, BarChart3 } from 'lucide-react';
+import { Target, GraduationCap, Briefcase, Calculator, TrendingUp, FileSearch, BarChart3, CheckCircle2, Lightbulb } from 'lucide-react';
 
 const About = () => {
-  const analyticalExposure = [
-    { text: 'Financial modeling and DCF valuation', icon: Calculator },
-    { text: 'Ratio and financial statement analysis', icon: TrendingUp },
-    { text: 'Sector and equity research', icon: FileSearch },
-    { text: 'Data-driven decision support', icon: BarChart3 }
+  const modelExperience = [
+    { text: 'DCF and comparable valuation models', icon: Calculator },
+    { text: 'LBO models with realistic debt structures', icon: TrendingUp },
+    { text: 'Financial performance analysis using ratios, margins, and cash flow diagnostics', icon: BarChart3 }
+  ];
+
+  const careerInterests = [
+    'Equity Research & Investment Analysis',
+    'FP&A / Corporate Finance',
+    'Credit & Risk Analysis',
+    'Investment Banking (entry-level support roles)'
+  ];
+
+  const coreStrengths = [
+    'Structured financial thinking',
+    'Excel-based modeling discipline',
+    'Breaking down complex financial statements',
+    'Communicating insights clearly and professionally'
   ];
 
   return (
     <section id="about" className="py-20 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold text-primary mb-4">About</h2>
+          <h2 className="text-3xl font-semibold text-primary mb-4">About Me</h2>
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
 
@@ -22,30 +35,73 @@ const About = () => {
           {/* Professional Summary */}
           <div className="text-center">
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              BBA Finance student at VGU, Jaipur with practical experience in financial analysis and strategic operations. 
-              Currently supporting strategic initiatives as Founder's Assistant at Jalvayu.co.
+              I am a BBA (Finance) student with a strong analytical mindset and a clear career focus on financial analysis, valuation, and investment decision-making. My academic foundation is complemented by hands-on, model-driven projects across corporate finance, equity research, and leveraged buyouts.
             </p>
           </div>
 
-          {/* Analytical Exposure */}
+          {/* Modeling Experience */}
           <Card className="border-border bg-card">
             <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-primary mb-6">Analytical Exposure</h3>
-              <ul className="grid md:grid-cols-2 gap-4">
-                {analyticalExposure.map((item, index) => {
+              <h3 className="text-xl font-semibold text-primary mb-4">Independent Model-Driven Work</h3>
+              <p className="text-muted-foreground mb-6">
+                Rather than limiting learning to theory, I focus on applying finance concepts to real businesses, stress-testing assumptions, and translating numbers into decision-relevant insights—the way analysts do in real roles.
+              </p>
+              <ul className="space-y-4">
+                {modelExperience.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <li key={index} className="flex items-start space-x-3">
                       <div className="p-1.5 bg-primary/10 rounded-md flex-shrink-0">
                         <Icon className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-muted-foreground">{item.text}</span>
+                      <span className="text-foreground">{item.text}</span>
                     </li>
                   );
                 })}
               </ul>
             </CardContent>
           </Card>
+
+          {/* Career Interests & Core Strengths */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="border-border bg-card hover:border-primary/30 transition-colors duration-200">
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Target className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">Career Interests</h3>
+                </div>
+                <ul className="space-y-2">
+                  {careerInterests.map((interest, index) => (
+                    <li key={index} className="flex items-center space-x-2 text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span>{interest}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:border-accent/30 transition-colors duration-200">
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-2 bg-accent/10 rounded-lg">
+                    <Lightbulb className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">Core Strengths</h3>
+                </div>
+                <ul className="space-y-2">
+                  {coreStrengths.map((strength, index) => (
+                    <li key={index} className="flex items-center space-x-2 text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span>{strength}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Education & Experience */}
           <div className="grid md:grid-cols-2 gap-6">
@@ -82,14 +138,14 @@ const About = () => {
             </Card>
           </div>
 
-          {/* Career Direction */}
+          {/* Career Direction CTA */}
           <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 text-center border border-primary/10">
             <div className="flex items-center justify-center space-x-2 mb-3">
-              <Target className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-semibold text-foreground">Career Direction</h3>
+              <FileSearch className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-semibold text-foreground">Open to Opportunities</h3>
             </div>
             <p className="text-muted-foreground">
-              Seeking internships or entry-level roles in Financial Analysis, Equity Research, or Corporate Finance.
+              I am actively seeking internships or entry-level analyst roles where I can contribute analytical value, learn from experienced professionals, and build long-term expertise in finance.
             </p>
           </div>
         </div>
