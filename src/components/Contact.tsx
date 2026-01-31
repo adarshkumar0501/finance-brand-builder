@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Linkedin, Download, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Download, MapPin, MessageCircle } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
@@ -40,7 +40,7 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_lwghpoh',
+        'service_xist4sl',
         'template_kkkweml',
         {
           from_name: formData.name,
@@ -256,6 +256,16 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918789211917?text=Hi%20Adarsh!%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7" />
+      </a>
     </section>
   );
 };
