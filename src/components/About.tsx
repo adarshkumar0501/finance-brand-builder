@@ -1,26 +1,27 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Target, GraduationCap, Briefcase, Calculator, TrendingUp, FileSearch, BarChart3, CheckCircle2, Lightbulb } from 'lucide-react';
+import { Target, GraduationCap, Briefcase, Calculator, TrendingUp, FileSearch, BarChart3, CheckCircle2, Lightbulb, LineChart, PieChart } from 'lucide-react';
 
 const About = () => {
-  const modelExperience = [
-    { text: 'DCF and comparable valuation models', icon: Calculator },
-    { text: 'LBO models with realistic debt structures', icon: TrendingUp },
-    { text: 'Financial performance analysis using ratios, margins, and cash flow diagnostics', icon: BarChart3 }
+  const analyticalWork = [
+    { text: 'FCFF-based DCF models with explicit WACC and terminal value assumptions', icon: Calculator },
+    { text: 'Detailed financial statement analyses and DuPont decompositions', icon: BarChart3 },
+    { text: 'Full equity research reports with segment analysis and valuation', icon: LineChart },
+    { text: 'Sensitivity analysis linking growth, ROIC, and reinvestment', icon: TrendingUp }
   ];
 
   const careerInterests = [
     'Equity Research & Investment Analysis',
     'FP&A / Corporate Finance',
     'Credit & Risk Analysis',
-    'Investment Banking (entry-level support roles)'
+    'Investment Banking (entry-level support)'
   ];
 
   const coreStrengths = [
     'Structured financial thinking',
     'Excel-based modeling discipline',
-    'Breaking down complex financial statements',
-    'Communicating insights clearly and professionally'
+    'Breaking down complex financials',
+    'Decision-oriented insight delivery'
   ];
 
   return (
@@ -33,21 +34,24 @@ const About = () => {
 
         <div className="space-y-8">
           {/* Professional Summary */}
-          <div className="text-center">
+          <div className="text-center space-y-4">
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              I am a BBA (Finance) student with a strong analytical mindset and a clear career focus on financial analysis, valuation, and investment decision-making. My academic foundation is complemented by hands-on, model-driven projects across corporate finance, equity research, and leveraged buyouts.
+              I am a finance graduate with hands-on experience in financial modeling, valuation, and equity research, developed through real-company, analyst-style projects rather than academic case studies.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              My work focuses on understanding why market prices differ from intrinsic value by explicitly modeling revenue growth, margins, reinvestment requirements, ROIC, capital structure, and WACC.
             </p>
           </div>
 
-          {/* Modeling Experience */}
+          {/* Analytical Work Experience */}
           <Card className="border-border bg-card">
             <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-primary mb-4">Independent Model-Driven Work</h3>
+              <h3 className="text-xl font-semibold text-primary mb-4">Independent Analytical Work</h3>
               <p className="text-muted-foreground mb-6">
-                Rather than limiting learning to theory, I focus on applying finance concepts to real businesses, stress-testing assumptions, and translating numbers into decision-relevant insights—the way analysts do in real roles.
+                Across my projects, I have analyzed companies trading at significant premiums to intrinsic value, demonstrating how optimistic assumptions and narrative-driven pricing impact valuation.
               </p>
               <ul className="space-y-4">
-                {modelExperience.map((item, index) => {
+                {analyticalWork.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <li key={index} className="flex items-start space-x-3">
@@ -70,7 +74,7 @@ const About = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Target className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">Career Interests</h3>
+                  <h3 className="text-lg font-semibold text-foreground">Target Roles</h3>
                 </div>
                 <ul className="space-y-2">
                   {careerInterests.map((interest, index) => (
@@ -145,7 +149,7 @@ const About = () => {
               <h3 className="text-lg font-semibold text-foreground">Open to Opportunities</h3>
             </div>
             <p className="text-muted-foreground">
-              I am actively seeking internships or entry-level analyst roles where I can contribute analytical value, learn from experienced professionals, and build long-term expertise in finance.
+              Open to entry-level Financial Analyst, Equity Research, FP&A, and Valuation roles. Available for immediate joining.
             </p>
           </div>
         </div>

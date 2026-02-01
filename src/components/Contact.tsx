@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Linkedin, Download, MapPin, MessageCircle } from 'lucide-react';
+import { Badge } from "@/components/ui/badge";
+import { Mail, Phone, Linkedin, Download, MapPin, MessageCircle, Calendar, Briefcase } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
@@ -97,6 +98,13 @@ const Contact = () => {
     }
   ];
 
+  const targetRoles = [
+    'Equity Research Analyst',
+    'Financial Analyst',
+    'FP&A Analyst',
+    'Valuation / Transaction Support'
+  ];
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-background to-primary/5 relative">
       {/* Subtle background pattern */}
@@ -106,9 +114,31 @@ const Contact = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-semibold text-primary mb-4">Get in Touch</h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-4"></div>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Connect for opportunities, analytical projects, or discussions.
+          <p className="text-muted-foreground max-w-xl mx-auto mb-6">
+            Open to entry-level Financial Analyst, Equity Research, FP&A, and Valuation roles.
           </p>
+          
+          {/* Availability Badge */}
+          <Badge variant="outline" className="border-accent/50 text-accent bg-accent/5 px-4 py-2">
+            <Calendar className="w-4 h-4 mr-2" />
+            Available for Immediate Joining
+          </Badge>
+        </div>
+
+        {/* Target Roles */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {targetRoles.map((role, index) => (
+            <Badge 
+              key={role} 
+              variant="secondary"
+              className={`px-3 py-1.5 ${
+                index % 2 === 0 ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'
+              }`}
+            >
+              <Briefcase className="w-3 h-3 mr-1.5" />
+              {role}
+            </Badge>
+          ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
@@ -251,11 +281,12 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 Adarsh Kumar. Financial Analyst | BBA Finance.
+              © 2024 Adarsh Kumar. Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
             </p>
           </div>
         </div>
       </div>
+      
       {/* Floating WhatsApp Button */}
       <a
         href="https://wa.me/918789211917?text=Hi%20Adarsh!%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."

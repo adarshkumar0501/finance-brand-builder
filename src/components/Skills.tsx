@@ -1,42 +1,36 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Calculator, TrendingUp, FileSearch, FileText, BarChart3 } from 'lucide-react';
+import { Calculator, TrendingUp, FileSearch, BarChart3, FileSpreadsheet, Table2, Settings } from 'lucide-react';
 
 const Skills = () => {
-  const technicalSkills = [
+  const coreSkills = [
     {
-      title: 'Financial Modeling & Valuation',
+      title: 'Financial Modeling (3-statement models, FCFF-based DCF, sensitivity analysis)',
       icon: Calculator,
-      points: ['3-statement models', 'DCF valuation', 'Sensitivity analysis'],
       accent: false
+    },
+    {
+      title: 'Equity Research & Valuation',
+      icon: TrendingUp,
+      accent: true
     },
     {
       title: 'Financial Statement & Ratio Analysis',
-      icon: TrendingUp,
-      points: ['Liquidity & solvency ratios', 'Profitability metrics', 'Trend analysis'],
-      accent: true
-    },
-    {
-      title: 'Equity & Market Research',
       icon: FileSearch,
-      points: ['Sector analysis', 'Competitive positioning', 'Investment thesis development'],
-      accent: false
-    },
-    {
-      title: 'Financial Reporting & Analysis',
-      icon: FileText,
-      points: ['Performance reports', 'Variance analysis', 'Executive summaries'],
-      accent: true
-    },
-    {
-      title: 'Data Analysis & Visualization',
-      icon: BarChart3,
-      points: ['Excel (Advanced)', 'Data interpretation', 'Dashboard development'],
       accent: false
     }
   ];
 
-  const softSkills = ['Analytical Thinking', 'Problem-Solving', 'Communication', 'Time Management'];
+  const supportingSkills = [
+    'Advanced Excel (scenario modeling, sensitivity tables)',
+    'Peer comparison and relative valuation',
+    'Profitability, liquidity, and solvency diagnostics'
+  ];
+
+  const tools = [
+    { name: 'Microsoft Excel (Advanced)', icon: FileSpreadsheet },
+    { name: 'Annual Reports and Public Filings', icon: Table2 }
+  ];
 
   return (
     <section id="skills" className="py-20 bg-secondary/50">
@@ -46,59 +40,72 @@ const Skills = () => {
           <div className="w-16 h-0.5 bg-accent mx-auto"></div>
         </div>
 
-        {/* Technical Skills */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {technicalSkills.map((skill) => {
-            const Icon = skill.icon;
-            return (
-              <Card 
-                key={skill.title} 
-                className={`border-border bg-card hover:shadow-md transition-all duration-200 ${
-                  skill.accent ? 'hover:border-accent/50' : 'hover:border-primary/50'
-                }`}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className={`p-2 rounded-lg mr-3 ${
-                      skill.accent ? 'bg-accent/10' : 'bg-primary/10'
-                    }`}>
-                      <Icon className={`w-5 h-5 ${skill.accent ? 'text-accent' : 'text-primary'}`} />
+        {/* Core Analyst Skills */}
+        <div className="mb-10">
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Core Analyst Skills</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {coreSkills.map((skill) => {
+              const Icon = skill.icon;
+              return (
+                <Card 
+                  key={skill.title} 
+                  className={`border-border bg-card hover:shadow-md transition-all duration-200 ${
+                    skill.accent ? 'hover:border-accent/50' : 'hover:border-primary/50'
+                  }`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex flex-col items-center text-center">
+                      <div className={`p-3 rounded-lg mb-4 ${
+                        skill.accent ? 'bg-accent/10' : 'bg-primary/10'
+                      }`}>
+                        <Icon className={`w-6 h-6 ${skill.accent ? 'text-accent' : 'text-primary'}`} />
+                      </div>
+                      <h4 className="font-medium text-foreground text-sm leading-relaxed">{skill.title}</h4>
                     </div>
-                    <h3 className="font-semibold text-foreground text-sm">{skill.title}</h3>
-                  </div>
-                  
-                  <ul className="space-y-2">
-                    {skill.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start space-x-2">
-                        <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${
-                          skill.accent ? 'bg-accent' : 'bg-primary'
-                        }`}></div>
-                        <span className="text-sm text-muted-foreground">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            );
-          })}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Soft Skills - Secondary */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-3">Supporting Skills</p>
+        {/* Supporting Skills */}
+        <div className="mb-10">
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Supporting Skills</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {softSkills.map((skill, index) => (
+            {supportingSkills.map((skill, index) => (
               <span 
                 key={skill} 
-                className={`px-4 py-2 bg-card border rounded-full text-sm ${
+                className={`px-4 py-2.5 bg-card border rounded-lg text-sm ${
                   index % 2 === 0 
-                    ? 'border-primary/20 text-primary' 
-                    : 'border-accent/20 text-accent'
+                    ? 'border-primary/20 text-foreground' 
+                    : 'border-accent/20 text-foreground'
                 }`}
               >
                 {skill}
               </span>
             ))}
+          </div>
+        </div>
+
+        {/* Tools */}
+        <div>
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Tools</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {tools.map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <div 
+                  key={tool.name}
+                  className={`flex items-center space-x-3 px-5 py-3 bg-card border rounded-lg ${
+                    index % 2 === 0 ? 'border-primary/20' : 'border-accent/20'
+                  }`}
+                >
+                  <Icon className={`w-5 h-5 ${index % 2 === 0 ? 'text-primary' : 'text-accent'}`} />
+                  <span className="text-sm font-medium text-foreground">{tool.name}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
