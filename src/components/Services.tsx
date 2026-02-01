@@ -1,36 +1,36 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, TrendingUp, FileText, BarChart3, MessageSquare, ExternalLink } from 'lucide-react';
+import { Calculator, TrendingUp, FileText, BarChart3, MessageSquare, ExternalLink, Target, CheckCircle2 } from 'lucide-react';
 
 const Services = () => {
   const capabilities = [
     {
-      title: 'Financial Reporting',
-      description: 'Preparing structured financial reports with clear insights for stakeholders and decision-makers.',
-      icon: FileText,
-      features: ['Financial Statement Preparation', 'Management Reporting', 'Variance Analysis', 'Executive Summaries'],
+      title: 'Intrinsic Valuation Models',
+      description: 'Build DCF models with explicit assumptions for growth, margins, WACC, and terminal value.',
+      icon: Calculator,
+      features: ['FCFF-based DCF models', 'Sensitivity analysis', 'Scenario modeling', 'Valuation summaries'],
       accent: false
     },
     {
-      title: 'Financial Analysis',
-      description: 'Analyzing financial data to identify trends, assess performance, and support strategic decisions.',
+      title: 'Equity Research Support',
+      description: 'Support research teams with peer comparison, financial diagnostics, and investment thesis development.',
       icon: TrendingUp,
-      features: ['Ratio Analysis', 'Trend Identification', 'Performance Benchmarking', 'Financial Health Assessment'],
+      features: ['Peer comparison analysis', 'Financial ratio analysis', 'Sector benchmarking', 'Investment thesis support'],
       accent: true
     },
     {
-      title: 'Valuation & Research',
-      description: 'Conducting fundamental analysis and valuation to support investment and business decisions.',
-      icon: Calculator,
-      features: ['DCF Valuation', 'Comparable Analysis', 'Industry Research', 'Investment Thesis Development'],
+      title: 'FP&A Analysis',
+      description: 'Assist FP&A teams with performance analysis, forecasting, and variance diagnostics.',
+      icon: BarChart3,
+      features: ['Performance analysis', 'Revenue/cost forecasting', 'Variance analysis', 'KPI tracking'],
       accent: false
     },
     {
-      title: 'Data Analysis & Visualization',
-      description: 'Transforming financial data into actionable insights through analysis and visual presentation.',
-      icon: BarChart3,
-      features: ['Data Modeling', 'Dashboard Development', 'KPI Tracking', 'Visual Reporting'],
+      title: 'Decision-Oriented Insights',
+      description: 'Translate financial data into clear, actionable insights for stakeholders.',
+      icon: Target,
+      features: ['Management reporting', 'Executive summaries', 'Visual dashboards', 'Actionable recommendations'],
       accent: true
     }
   ];
@@ -56,7 +56,7 @@ const Services = () => {
           <h2 className="text-3xl font-semibold text-primary mb-4">Analytical Capabilities</h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-4"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Core competencies developed through academic training and hands-on experience in financial analysis and research.
+            How I can support finance and research teams with analytical work and decision-oriented insights.
           </p>
         </div>
 
@@ -86,9 +86,9 @@ const Services = () => {
                   <ul className="space-y-2 mb-5">
                     {capability.features.map((feature) => (
                       <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                        <div className={`w-1.5 h-1.5 rounded-full mr-3 ${
-                          capability.accent ? 'bg-accent' : 'bg-primary'
-                        }`}></div>
+                        <CheckCircle2 className={`w-4 h-4 mr-2 flex-shrink-0 ${
+                          capability.accent ? 'text-accent' : 'text-primary'
+                        }`} />
                         {feature}
                       </li>
                     ))}
@@ -127,11 +127,29 @@ const Services = () => {
           })}
         </div>
 
-        {/* Disclaimer */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">
-            Open to internships, entry-level roles, and analytical collaborations.
+        {/* CTA Section */}
+        <div className="text-center bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-8 border border-primary/10">
+          <h3 className="text-xl font-semibold text-foreground mb-3">Open to Opportunities</h3>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+            Open to entry-level Financial Analyst, Equity Research, FP&A, and Valuation roles. Available for immediate joining.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              onClick={handleConnect}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              <MessageSquare className="w-4 h-4 mr-2" />
+              Get in Touch
+            </Button>
+            <Button 
+              onClick={handleViewProjects}
+              variant="outline"
+              className="border-accent/30 text-accent hover:bg-accent/5 hover:border-accent"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              View My Work
+            </Button>
+          </div>
         </div>
       </div>
     </section>

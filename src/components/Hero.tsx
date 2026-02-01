@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Linkedin, ExternalLink, TrendingUp, BarChart3, PieChart } from 'lucide-react';
+import { Badge } from "@/components/ui/badge";
+import { ArrowDown, Download, Linkedin, ExternalLink, TrendingUp, BarChart3, PieChart, Calendar } from 'lucide-react';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -83,18 +84,26 @@ const Hero = () => {
                 Adarsh Kumar
               </h1>
               <p className="text-xl md:text-2xl text-foreground font-medium">
-                Entry-Level Financial Analyst | Valuation, Equity Research & Financial Analysis
+                Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
               </p>
             </div>
             
-            {/* Two-line subheadline */}
-            <div className="max-w-3xl mx-auto space-y-2">
-              <p className="text-lg text-muted-foreground">
-                BBA (Finance) student with hands-on experience in financial modeling, valuation, and market research.
+            {/* New subheadline */}
+            <div className="max-w-3xl mx-auto space-y-3">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I build decision-focused financial models to evaluate intrinsic value, capital efficiency, and risk across FMCG and technology companies.
               </p>
-              <p className="text-lg text-muted-foreground">
-                Founder's Assistant experience supporting strategy and data-driven decision-making.
+              <p className="text-base text-muted-foreground">
+                My work challenges market expectations by linking growth, ROIC, reinvestment, and valuation outcomes using real-company data.
               </p>
+            </div>
+
+            {/* Availability Badge */}
+            <div className="flex justify-center">
+              <Badge variant="outline" className="border-accent/50 text-accent bg-accent/5 px-4 py-2 text-sm font-medium">
+                <Calendar className="w-4 h-4 mr-2" />
+                Actively seeking entry-level analyst roles & internships | Immediate availability
+              </Badge>
             </div>
           </div>
 
