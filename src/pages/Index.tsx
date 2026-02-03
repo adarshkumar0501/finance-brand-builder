@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
+import Certifications from '../components/Certifications';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Resume from '../components/Resume';
@@ -16,6 +17,7 @@ const Index = () => {
         <Hero />
         <About />
         <Skills />
+        <Certifications />
         <Projects />
         <Services />
         <Resume />
