@@ -79,136 +79,102 @@ const Resume = () => {
           </div>
 
           {/* Professional Summary */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
+          <div className="mb-3">
+            <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
               Professional Summary
             </h2>
-            <p className="text-xs text-gray-700 leading-relaxed">
-              Finance graduate with hands-on experience in financial modeling, valuation, and equity research through real-company analyst-style projects. Skilled in building FCFF-based DCF models, detailed financial statement analysis, DuPont decompositions, and full equity research reports. Focus on understanding market price vs. intrinsic value by modeling revenue growth, margins, reinvestment requirements, ROIC, capital structure, and WACC. Seeking entry-level Financial Analyst, Equity Research, FP&A, or Valuation roles with immediate availability.
+            <p className="text-[10px] text-gray-700 leading-relaxed">
+              Finance graduate with hands-on experience in financial modeling, valuation, and equity research through real-company analyst-style projects. Skilled in FCFF-based DCF models, financial statement analysis, and DuPont decompositions. Focus on understanding market price vs. intrinsic value by modeling revenue growth, margins, ROIC, and WACC.
             </p>
           </div>
 
-          {/* Core Skills */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
-              Core Skills
-            </h2>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-700">
-              <div>• Financial Modeling (3-statement, DCF, Sensitivity)</div>
-              <div>• Equity Research & Valuation</div>
-              <div>• Financial Statement & Ratio Analysis</div>
-              <div>• DuPont Decomposition</div>
-              <div>• Advanced Excel (Scenario & Sensitivity Modeling)</div>
-              <div>• Peer Comparison & Relative Valuation</div>
-              <div>• Profitability, Liquidity & Solvency Diagnostics</div>
-              <div>• Decision-Oriented Financial Insights</div>
+          {/* Two Column Layout for Skills and Education */}
+          <div className="grid grid-cols-2 gap-4 mb-3">
+            {/* Core Skills */}
+            <div>
+              <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
+                Core Skills
+              </h2>
+              <div className="text-[10px] text-gray-700 space-y-0.5">
+                <div>• Financial Modeling (3-statement, DCF)</div>
+                <div>• Equity Research & Valuation</div>
+                <div>• Financial Statement Analysis</div>
+                <div>• Advanced Excel & Sensitivity Modeling</div>
+                <div>• Peer Comparison & Diagnostics</div>
+              </div>
+            </div>
+
+            {/* Education & Experience */}
+            <div>
+              <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
+                Education & Experience
+              </h2>
+              <div className="text-[10px] text-gray-700 space-y-1">
+                <div>
+                  <span className="font-semibold">BBA in Finance</span> | 2023–2026
+                  <p className="text-gray-600">Vivekananda Global University, Jaipur</p>
+                </div>
+                <div>
+                  <span className="font-semibold">Founder's Assistant</span> | Jalvayu.co
+                  <p className="text-gray-600">Strategy & financial data analysis support</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Education */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
-              Education
+          {/* Certifications */}
+          <div className="mb-3">
+            <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
+              Certifications
             </h2>
-            <div className="text-xs text-gray-700">
-              <div className="flex justify-between mb-1">
-                <span className="font-semibold">BBA in Finance</span>
-                <span>2023 – 2026</span>
-              </div>
-              <p>Vivekananda Global University, Jaipur</p>
-            </div>
-          </div>
-
-          {/* Experience */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
-              Experience
-            </h2>
-            <div className="text-xs text-gray-700">
-              <div className="flex justify-between mb-1">
-                <span className="font-semibold">Founder's Assistant</span>
-                <span>Jalvayu.co</span>
-              </div>
-              <p>Strategy, financial content & data analysis support</p>
+            <div className="grid grid-cols-2 gap-x-4 text-[10px] text-gray-700">
+              <div>• Banking & Financial Markets – SWAYAM</div>
+              <div>• McKinsey Forward Program – McKinsey</div>
+              <div>• Financial Analysis – New York City</div>
+              <div>• Corporate Financial Statement Analysis – LinkedIn</div>
+              <div>• Stock Valuation – Coursera</div>
             </div>
           </div>
 
           {/* Featured Projects */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
+          <div className="mb-3">
+            <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
               Featured Projects
             </h2>
             
-            <div className="space-y-3 text-xs text-gray-700">
-              {/* Zomato DCF */}
+            <div className="space-y-1.5 text-[10px] text-gray-700">
               <div>
-                <p className="font-semibold">Zomato – DCF Valuation (Technology / Platform Business)</p>
-                <p className="ml-2">• Built FCFF-based DCF model with ~30% Revenue CAGR, 15.4% WACC, 6.5% Terminal Growth</p>
-                <p className="ml-2">• Intrinsic Value: ₹59/share vs Market Price ₹319 (~5× premium)</p>
-                <p className="ml-2">• Key Insight: Weak capital efficiency and high reinvestment requirements explain valuation gap</p>
+                <span className="font-semibold">Zomato – DCF Valuation:</span> Built FCFF-based DCF model (30% CAGR, 15.4% WACC). Intrinsic Value ₹59 vs Market ₹319 (~5× premium). Identified weak capital efficiency.
               </div>
-
-              {/* Britannia DuPont */}
               <div>
-                <p className="font-semibold">Britannia – DuPont Analysis (FMCG)</p>
-                <p className="ml-2">• Decomposed ROE into profitability (12% Net Margin), efficiency (1.8× Asset Turnover), and leverage (1.5× Equity Multiplier)</p>
-                <p className="ml-2">• Key Insight: ROE driven by operating performance, not balance-sheet risk</p>
+                <span className="font-semibold">Britannia – DuPont Analysis:</span> Decomposed ROE (12% Margin, 1.8× Turnover, 1.5× Leverage). ROE driven by operations, not leverage.
               </div>
-
-              {/* Britannia Valuation */}
               <div>
-                <p className="font-semibold">Britannia – Financial Modeling & Valuation (FMCG)</p>
-                <p className="ml-2">• Built comprehensive DCF model with 13.8% WACC, 5% Terminal Growth</p>
-                <p className="ml-2">• Intrinsic Value: ₹1,780/share vs Market Price ₹5,700+ (&gt;3× premium)</p>
-                <p className="ml-2">• Key Insight: Strong fundamentals trade at premium implying optimistic assumptions</p>
+                <span className="font-semibold">Britannia – DCF Valuation:</span> Comprehensive model (13.8% WACC, 5% Terminal). Intrinsic ₹1,780 vs Market ₹5,700+ (&gt;3× premium).
               </div>
-
-              {/* ITC Financial Analysis */}
               <div>
-                <p className="font-semibold">ITC – Financial Statement Analysis (Diversified FMCG)</p>
-                <p className="ml-2">• Analyzed ₹75,000+ Cr revenue company: 34% EBITDA Margin, 23% Net Margin, 28% ROE, Zero Debt</p>
-                <p className="ml-2">• Key Insight: Strong cash-flow generation and margin stability across business cycles</p>
+                <span className="font-semibold">ITC – Financial Analysis:</span> ₹75,000+ Cr revenue, 34% EBITDA, 23% Net Margin, 28% ROE, Zero Debt. Strong cash generation.
               </div>
-
-              {/* ITC Equity Research */}
               <div>
-                <p className="font-semibold">ITC – Equity Research Report (FMCG)</p>
-                <p className="ml-2">• Full research report: P/E ~28× vs sector 53×, Dividend Yield 4.2%, Debt-free</p>
-                <p className="ml-2">• Investment View: Strong cash flows and capital discipline support attractive risk-reward</p>
+                <span className="font-semibold">ITC – Equity Research:</span> P/E ~28× vs sector 53×, 4.2% yield, debt-free. Attractive risk-reward profile.
               </div>
-            </div>
-          </div>
-
-          {/* Analytical Capabilities */}
-          <div className="mb-4">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
-              Analytical Capabilities
-            </h2>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-700">
-              <div>• Intrinsic Valuation Models (DCF, Sensitivity)</div>
-              <div>• Equity Research Support & Peer Analysis</div>
-              <div>• FP&A Performance Analysis & Forecasting</div>
-              <div>• Decision-Oriented Financial Insights</div>
             </div>
           </div>
 
           {/* Tools */}
           <div className="mb-2">
-            <h2 className="text-sm font-bold text-gray-900 border-b border-gray-400 pb-1 mb-2 uppercase">
-              Tools & Resources
+            <h2 className="text-xs font-bold text-gray-900 border-b border-gray-400 pb-1 mb-1 uppercase">
+              Tools
             </h2>
-            <p className="text-xs text-gray-700">
+            <p className="text-[10px] text-gray-700">
               Microsoft Excel (Advanced) • Annual Reports & Public Filings • Financial Databases
             </p>
           </div>
 
           {/* Target Roles */}
-          <div className="mt-4 pt-3 border-t border-gray-300">
-            <p className="text-xs text-gray-600 text-center">
-              <span className="font-semibold">Target Roles:</span> Equity Research Analyst | Financial Analyst | FP&A Analyst | Valuation / Transaction Support
-            </p>
-            <p className="text-xs text-gray-600 text-center mt-1">
-              <span className="font-semibold">Availability:</span> Immediate
+          <div className="pt-2 border-t border-gray-300">
+            <p className="text-[10px] text-gray-600 text-center">
+              <span className="font-semibold">Target Roles:</span> Equity Research Analyst | Financial Analyst | FP&A Analyst | Valuation Support | <span className="font-semibold">Availability:</span> Immediate
             </p>
           </div>
         </div>
