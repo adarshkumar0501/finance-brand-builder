@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import { Download, Mail, Phone, Linkedin, MapPin, Globe } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -70,6 +70,10 @@ const Resume = () => {
               <span className="flex items-center gap-1">
                 <MapPin className="w-3 h-3" />
                 Jaipur, Rajasthan
+              </span>
+              <span className="flex items-center gap-1">
+                <Globe className="w-3 h-3" />
+                finance-brand-builder.lovable.app
               </span>
             </div>
           </div>
