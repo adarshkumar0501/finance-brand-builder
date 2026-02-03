@@ -113,6 +113,12 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-primary hover:bg-finance-blue-light text-primary-foreground px-8 py-3 text-base font-medium rounded-lg transition-colors duration-200"
+              onClick={() => {
+                const resumeSection = document.querySelector('#resume');
+                if (resumeSection) {
+                  resumeSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               <Download className="mr-2 w-5 h-5" />
               Download Resume

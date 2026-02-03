@@ -162,6 +162,12 @@ const Contact = () => {
               <Button 
                 variant="outline"
                 className="border-accent/30 text-accent hover:bg-accent/5 hover:border-accent flex-1"
+                onClick={() => {
+                  const resumeSection = document.querySelector('#resume');
+                  if (resumeSection) {
+                    resumeSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
