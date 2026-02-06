@@ -69,9 +69,10 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-0.5">
                 <div className="w-full h-full rounded-full bg-background p-1">
                   <img 
-                    src="https://i.postimg.cc/SRmXpgJ3/Adarsh-Kumar.jpg"
+                    src={profilePhoto}
                     alt="Adarsh Kumar - Financial Analyst"
                     className="w-full h-full rounded-full object-cover"
+                  />
                   />
                 </div>
               </div>
