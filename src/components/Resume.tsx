@@ -71,10 +71,15 @@ const Resume = () => {
                 <MapPin className="w-3 h-3" />
                 Jaipur, Rajasthan
               </span>
-              <span className="flex items-center gap-1">
+              <a 
+                href="https://finance-brand-builder.lovable.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-blue-600 hover:underline"
+              >
                 <Globe className="w-3 h-3" />
                 finance-brand-builder.lovable.app
-              </span>
+              </a>
             </div>
           </div>
 
