@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Download, Linkedin, ExternalLink, TrendingUp, BarChart3, PieChart, Calendar } from 'lucide-react';
+import profilePhoto from '@/assets/adarsh-profile.png';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -68,7 +69,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-0.5">
                 <div className="w-full h-full rounded-full bg-background p-1">
                   <img 
-                    src="https://i.postimg.cc/SRmXpgJ3/Adarsh-Kumar.jpg"
+                    src={profilePhoto}
                     alt="Adarsh Kumar - Financial Analyst"
                     className="w-full h-full rounded-full object-cover"
                   />
