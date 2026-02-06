@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Download, Linkedin, ExternalLink, TrendingUp, BarChart3, PieChart, Calendar } from 'lucide-react';
+import profilePhoto from '@/assets/adarsh-profile.png';
 
 const Hero = () => {
   const scrollToProjects = () => {
