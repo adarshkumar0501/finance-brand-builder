@@ -55,18 +55,26 @@ const Resume = () => {
               Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-600">
-              <span className="flex items-center gap-1">
+              <a 
+                href="mailto:adarshkumar05012002@gmail.com"
+                className="flex items-center gap-1 text-blue-600 hover:underline"
+              >
                 <Mail className="w-3 h-3" />
                 adarshkumar05012002@gmail.com
-              </span>
+              </a>
               <span className="flex items-center gap-1">
                 <Phone className="w-3 h-3" />
                 +91 8789211917
               </span>
-              <span className="flex items-center gap-1">
+              <a 
+                href="https://www.linkedin.com/in/adarshkumar-"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-blue-600 hover:underline"
+              >
                 <Linkedin className="w-3 h-3" />
                 linkedin.com/in/adarshkumar-
-              </span>
+              </a>
               <span className="flex items-center gap-1">
                 <MapPin className="w-3 h-3" />
                 Jaipur, Rajasthan
