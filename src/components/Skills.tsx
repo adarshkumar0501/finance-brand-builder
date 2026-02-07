@@ -1,28 +1,49 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Calculator, TrendingUp, FileSearch, BarChart3, FileSpreadsheet, Table2, Settings } from 'lucide-react';
+import { Calculator, TrendingUp, FileSearch, BarChart3, FileSpreadsheet, Table2, DollarSign, PieChart, Target, LineChart, FileText } from 'lucide-react';
 
 const Skills = () => {
   const coreSkills = [
     {
-      title: 'Financial Modeling (3-statement models, FCFF-based DCF, sensitivity analysis)',
-      icon: Calculator,
+      title: 'Leveraged Buyout (LBO) Modeling',
+      icon: DollarSign,
       accent: false
     },
     {
-      title: 'Equity Research & Valuation',
-      icon: TrendingUp,
+      title: 'DCF Valuation & Sensitivity Analysis',
+      icon: Calculator,
       accent: true
     },
     {
-      title: 'Financial Statement & Ratio Analysis',
-      icon: FileSearch,
+      title: 'Financial Statement Forecasting',
+      icon: LineChart,
+      accent: false
+    },
+    {
+      title: 'Capital Structure & Debt Modeling',
+      icon: BarChart3,
+      accent: true
+    },
+    {
+      title: 'IRR, MOIC & Exit Analysis',
+      icon: Target,
+      accent: false
+    },
+    {
+      title: 'Advanced Excel (3-statement & transaction models)',
+      icon: FileSpreadsheet,
+      accent: true
+    },
+    {
+      title: 'Investment Memo & Deal Analysis',
+      icon: FileText,
       accent: false
     }
   ];
 
   const supportingSkills = [
-    'Advanced Excel (scenario modeling, sensitivity tables)',
+    'Equity Research & Valuation',
+    'Financial Statement & Ratio Analysis',
     'Peer comparison and relative valuation',
     'Profitability, liquidity, and solvency diagnostics'
   ];
@@ -42,8 +63,8 @@ const Skills = () => {
 
         {/* Core Analyst Skills */}
         <div className="mb-10">
-          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Core Analyst Skills</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Core Skills</h3>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             {coreSkills.map((skill) => {
               const Icon = skill.icon;
               return (
@@ -53,14 +74,14 @@ const Skills = () => {
                     skill.accent ? 'hover:border-accent/50' : 'hover:border-primary/50'
                   }`}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-4">
                     <div className="flex flex-col items-center text-center">
-                      <div className={`p-3 rounded-lg mb-4 ${
+                      <div className={`p-2.5 rounded-lg mb-3 ${
                         skill.accent ? 'bg-accent/10' : 'bg-primary/10'
                       }`}>
-                        <Icon className={`w-6 h-6 ${skill.accent ? 'text-accent' : 'text-primary'}`} />
+                        <Icon className={`w-5 h-5 ${skill.accent ? 'text-accent' : 'text-primary'}`} />
                       </div>
-                      <h4 className="font-medium text-foreground text-sm leading-relaxed">{skill.title}</h4>
+                      <h4 className="font-medium text-foreground text-xs leading-relaxed">{skill.title}</h4>
                     </div>
                   </CardContent>
                 </Card>

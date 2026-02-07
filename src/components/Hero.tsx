@@ -85,7 +85,7 @@ const Hero = () => {
                 Adarsh Kumar
               </h1>
               <p className="text-xl md:text-2xl text-foreground font-medium">
-                Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
+                Financial Analyst | Valuation, Equity Research & Financial Modeling
               </p>
             </div>
             
@@ -103,7 +103,7 @@ const Hero = () => {
             <div className="flex justify-center">
               <Badge variant="outline" className="border-accent/50 text-accent bg-accent/5 px-4 py-2 text-sm font-medium">
                 <Calendar className="w-4 h-4 mr-2" />
-                Actively seeking entry-level analyst roles & internships | Immediate availability
+                Actively seeking analyst roles & internships | Immediate availability
               </Badge>
             </div>
           </div>

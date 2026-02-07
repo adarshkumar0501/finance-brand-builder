@@ -52,7 +52,7 @@ const Resume = () => {
           <div className="text-center border-b-2 border-gray-800 pb-4 mb-4">
             <h1 className="text-2xl font-bold text-gray-900 mb-1">ADARSH KUMAR</h1>
             <p className="text-sm font-semibold text-gray-700 mb-2">
-              Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
+              Financial Analyst | Valuation, Equity Research & Financial Modeling
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-600">
               <a 
