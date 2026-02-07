@@ -72,12 +72,20 @@ const hiltonReturnsData = [
   { metric: 'Exit Equity', value: 15.8 }
 ];
 
-// Hilton LBO Data - Value Bridge
-const hiltonValueBridge = [
-  { stage: 'Entry EV', value: 25.0 },
-  { stage: 'EBITDA Growth', value: 8.5 },
-  { stage: 'Deleveraging', value: 4.3 },
-  { stage: 'Exit EV', value: 25.0 }
+// Hilton LBO Data - Debt Paydown & EBITDA Growth
+const hiltonDebtEbitda = [
+  { year: 'Y0', debt: 6.6, ebitda: 2.0 },
+  { year: 'Y1', debt: 6.0, ebitda: 2.2 },
+  { year: 'Y2', debt: 5.2, ebitda: 2.5 },
+  { year: 'Y3', debt: 4.3, ebitda: 2.8 },
+  { year: 'Y4', debt: 3.2, ebitda: 3.0 },
+  { year: 'Y5', debt: 2.3, ebitda: 3.1 }
+];
+
+// Hilton LBO - Returns Metrics
+const hiltonReturnMetrics = [
+  { metric: 'MOIC', value: 2.9, unit: '×', color: 'hsl(var(--accent))' },
+  { metric: 'IRR', value: 23.6, unit: '%', color: 'hsl(var(--primary))' }
 ];
 
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
@@ -215,20 +223,43 @@ const Projects = () => {
     switch (chartType) {
       case 'lbo':
         return (
-          <div className="h-[220px] space-y-4">
-            {/* Capital Structure */}
+          <div className="h-[320px] space-y-3">
+            {/* Debt Paydown & EBITDA Growth Chart */}
             <div>
-              <p className="text-xs text-muted-foreground mb-2 font-medium">Capital Structure at Entry ($bn)</p>
-              <ResponsiveContainer width="100%" height={80}>
-                <BarChart data={hiltonCapitalStructure} layout="vertical">
-                  <XAxis type="number" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
-                  <YAxis dataKey="name" type="category" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} width={80} />
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Debt Paydown vs EBITDA Growth ($bn)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={hiltonDebtEbitda}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: 'hsl(var(--card))', 
                       border: '1px solid hsl(var(--border))',
                       borderRadius: '8px',
-                      fontSize: '11px'
+                      fontSize: '10px'
+                    }}
+                    formatter={(value, name) => [`$${value}bn`, name === 'debt' ? 'Debt' : 'EBITDA']}
+                  />
+                  <Bar dataKey="debt" fill="hsl(var(--primary))" name="Debt" radius={[2, 2, 0, 0]} />
+                  <Line type="monotone" dataKey="ebitda" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            
+            {/* Capital Structure at Entry */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Capital Structure at Entry ($bn)</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <BarChart data={hiltonCapitalStructure} layout="vertical">
+                  <XAxis type="number" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis dataKey="name" type="category" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} width={70} />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: 'hsl(var(--card))', 
+                      border: '1px solid hsl(var(--border))',
+                      borderRadius: '8px',
+                      fontSize: '10px'
                     }}
                     formatter={(value) => [`$${value}bn`, '']}
                   />
@@ -240,26 +271,21 @@ const Projects = () => {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            {/* Returns Comparison */}
-            <div>
-              <p className="text-xs text-muted-foreground mb-2 font-medium">Equity Value Creation ($bn)</p>
-              <ResponsiveContainer width="100%" height={80}>
-                <ComposedChart data={hiltonReturnsData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis dataKey="metric" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
-                  <YAxis tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--card))', 
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px',
-                      fontSize: '11px'
-                    }}
-                    formatter={(value) => [`$${value}bn`, '']}
-                  />
-                  <Bar dataKey="value" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
-                </ComposedChart>
-              </ResponsiveContainer>
+
+            {/* Returns Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-center">
+                <p className="text-[10px] text-muted-foreground">MOIC</p>
+                <p className="text-lg font-bold text-accent">2.9×</p>
+              </div>
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">IRR</p>
+                <p className="text-lg font-bold text-primary">23.6%</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">Exit Equity</p>
+                <p className="text-lg font-bold text-foreground">$15.8bn</p>
+              </div>
             </div>
           </div>
         );
