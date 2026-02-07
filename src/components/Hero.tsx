@@ -103,7 +103,7 @@ const Hero = () => {
             <div className="flex justify-center">
               <Badge variant="outline" className="border-accent/50 text-accent bg-accent/5 px-4 py-2 text-sm font-medium">
                 <Calendar className="w-4 h-4 mr-2" />
-                Actively seeking analyst roles & internships | Immediate availability
+                Actively seeking analyst roles in my domain | Immediate availability
               </Badge>
             </div>
           </div>
