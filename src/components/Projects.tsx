@@ -60,9 +60,64 @@ const itcSegmentData = [
   { name: 'Paper', value: 14, fill: 'hsl(180 40% 50%)' }
 ];
 
+// Hilton LBO Data - Capital Structure
+const hiltonCapitalStructure = [
+  { name: 'Senior Debt', value: 6.6, fill: 'hsl(var(--primary))' },
+  { name: 'Sponsor Equity', value: 5.5, fill: 'hsl(var(--accent))' }
+];
+
+// Hilton LBO Data - Returns Analysis
+const hiltonReturnsData = [
+  { metric: 'Entry Equity', value: 5.5 },
+  { metric: 'Exit Equity', value: 15.8 }
+];
+
+// Hilton LBO Data - Value Bridge
+const hiltonValueBridge = [
+  { stage: 'Entry EV', value: 25.0 },
+  { stage: 'EBITDA Growth', value: 8.5 },
+  { stage: 'Deleveraging', value: 4.3 },
+  { stage: 'Exit EV', value: 25.0 }
+];
+
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
 
 const projects = [
+  {
+    id: 0,
+    title: 'Leveraged Buyout (LBO) Case Study – Hilton Hotels',
+    company: 'Hilton Hotels',
+    sector: 'Private Equity / Hospitality',
+    icon: Building2,
+    isFeatured: true,
+    summary: 'Built a comprehensive LBO model analyzing Blackstone\'s acquisition of Hilton Hotels, demonstrating value creation through operational improvement and deleveraging.',
+    transactionOverview: [
+      { label: 'Entry Equity Value', value: '~$18.5bn' },
+      { label: 'Enterprise Value', value: '~$25.0bn' },
+      { label: 'Entry Multiple', value: '12.5× LTM EBITDA' },
+      { label: 'Exit Multiple', value: '8.0× EBITDA' },
+      { label: 'Investment Horizon', value: '5 years' }
+    ],
+    capitalStructure: [
+      { label: 'Total Debt at Entry', value: '~$6.6bn (~4.8× EBITDA)' },
+      { label: 'Sponsor Equity', value: '~$5.5bn' }
+    ],
+    operatingAssumptions: [
+      'Revenue growth driven by steady occupancy and pricing',
+      'EBITDA margin expansion through operating leverage',
+      'CapEx maintained at ~7% of revenue',
+      'Working capital tightly controlled at ~3.3% of sales'
+    ],
+    returns: [
+      { label: 'Exit Enterprise Value', value: '~$25.0bn', type: 'neutral' },
+      { label: 'Sponsor Equity at Exit', value: '~$15.8bn', type: 'positive' },
+      { label: 'MOIC', value: '~2.9×', type: 'positive' },
+      { label: 'IRR', value: '~23.6%', type: 'positive' }
+    ],
+    insight: 'Despite multiple compression at exit, value creation is driven by EBITDA growth, cash flow–led deleveraging, and disciplined capital allocation. This reinforces the PE principle that operational performance and cash flow matter more than exit multiple expansion.',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_lbo-modeling-hilton-activity-7421378895691718656-eOIA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD-i-LYB1CFD27drBgEv2IkcEMEtXRny2UM',
+    chartType: 'lbo'
+  },
   {
     id: 1,
     title: 'Zomato – DCF Valuation',
@@ -158,6 +213,56 @@ const projects = [
 const Projects = () => {
   const renderChart = (chartType: string) => {
     switch (chartType) {
+      case 'lbo':
+        return (
+          <div className="h-[220px] space-y-4">
+            {/* Capital Structure */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-2 font-medium">Capital Structure at Entry ($bn)</p>
+              <ResponsiveContainer width="100%" height={80}>
+                <BarChart data={hiltonCapitalStructure} layout="vertical">
+                  <XAxis type="number" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis dataKey="name" type="category" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} width={80} />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: 'hsl(var(--card))', 
+                      border: '1px solid hsl(var(--border))',
+                      borderRadius: '8px',
+                      fontSize: '11px'
+                    }}
+                    formatter={(value) => [`$${value}bn`, '']}
+                  />
+                  <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                    {hiltonCapitalStructure.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Returns Comparison */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-2 font-medium">Equity Value Creation ($bn)</p>
+              <ResponsiveContainer width="100%" height={80}>
+                <ComposedChart data={hiltonReturnsData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="metric" tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 9, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: 'hsl(var(--card))', 
+                      border: '1px solid hsl(var(--border))',
+                      borderRadius: '8px',
+                      fontSize: '11px'
+                    }}
+                    formatter={(value) => [`$${value}bn`, '']}
+                  />
+                  <Bar dataKey="value" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        );
       case 'zomato':
         return (
           <ResponsiveContainer width="100%" height={180}>
@@ -286,12 +391,18 @@ const Projects = () => {
           {projects.map((project, index) => {
             const Icon = project.icon;
             const isAccent = index % 2 === 1;
+            const isFeatured = (project as any).isFeatured;
             
             return (
-              <Card key={project.id} className="border-border bg-card hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <Card key={project.id} className={`border-border bg-card hover:shadow-lg transition-all duration-300 overflow-hidden ${isFeatured ? 'ring-2 ring-accent/30' : ''}`}>
+                {isFeatured && (
+                  <div className="bg-accent/10 border-b border-accent/20 px-6 py-2">
+                    <span className="text-xs font-semibold text-accent uppercase tracking-wide">🔹 Featured Project (Deep Dive)</span>
+                  </div>
+                )}
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Chart Section */}
-                  <div className="lg:col-span-2 p-6 bg-muted/30 border-b lg:border-b-0 lg:border-r border-border">
+                  <div className={`lg:col-span-2 p-6 bg-muted/30 border-b lg:border-b-0 lg:border-r border-border ${isFeatured ? 'lg:col-span-2' : ''}`}>
                     <div className="h-full flex flex-col">
                       <div className="flex items-center space-x-2 mb-4">
                         <div className={`p-2 rounded-lg ${isAccent ? 'bg-accent/10' : 'bg-primary/10'}`}>
@@ -312,6 +423,63 @@ const Projects = () => {
 
                     <CardContent className="p-0 space-y-4">
                       <p className="text-sm text-muted-foreground">{project.summary}</p>
+
+                      {/* LBO Specific Sections */}
+                      {(project as any).transactionOverview && (
+                        <div>
+                          <p className="text-xs font-semibold text-foreground mb-2">Transaction Overview</p>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {(project as any).transactionOverview.map((item: any) => (
+                              <div key={item.label} className="text-sm">
+                                <span className="text-muted-foreground">{item.label}: </span>
+                                <span className="font-medium text-foreground">{item.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {(project as any).capitalStructure && (
+                        <div>
+                          <p className="text-xs font-semibold text-foreground mb-2">Capital Structure</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            {(project as any).capitalStructure.map((item: any) => (
+                              <div key={item.label} className="text-sm">
+                                <span className="text-muted-foreground">{item.label}: </span>
+                                <span className="font-medium text-foreground">{item.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {(project as any).operatingAssumptions && (
+                        <div>
+                          <p className="text-xs font-semibold text-foreground mb-2">Operating Assumptions</p>
+                          <ul className="space-y-1">
+                            {(project as any).operatingAssumptions.map((item: string, idx: number) => (
+                              <li key={idx} className="flex items-start space-x-2 text-sm">
+                                <TrendingUp className="w-3 h-3 text-accent flex-shrink-0 mt-1" />
+                                <span className="text-muted-foreground">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {(project as any).returns && (
+                        <div className="flex flex-wrap gap-2">
+                          {(project as any).returns.map((item: any) => (
+                            <Badge 
+                              key={item.label} 
+                              variant={item.type === 'positive' ? 'default' : item.type === 'negative' ? 'destructive' : 'secondary'}
+                              className={`text-xs ${item.type === 'positive' ? 'bg-green-600 hover:bg-green-700' : ''}`}
+                            >
+                              {item.label}: {item.value}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
 
                       {/* Key Assumptions/Outputs */}
                       {project.keyAssumptions && (
