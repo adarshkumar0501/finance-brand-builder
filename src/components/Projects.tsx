@@ -253,20 +253,21 @@ const projects = [
     company: 'Aegis Logistics Ltd',
     sector: 'Oil & Gas / Infrastructure',
     icon: TrendingUp,
-    summary: 'Built an FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, analyzing its gas distribution and liquid terminal business segments under multi-scenario assumptions.',
+    summary: 'Built a conservative FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, incorporating risk-adjusted WACC for equity-heavy capital structure, commodity exposure, and India risk premium.',
     keyAssumptions: [
-      { label: 'Revenue CAGR', value: '~18% (FY24–FY29E)' },
-      { label: 'WACC', value: '~12.8%' },
-      { label: 'Terminal Growth', value: '~5%' },
-      { label: 'EBITDA Margin (Exit)', value: '~12.5%' }
+      { label: 'Revenue CAGR', value: '~7–9% (FY25E–FY30E)' },
+      { label: 'FCFF CAGR', value: '~5.4%' },
+      { label: 'WACC', value: '11.12%' },
+      { label: 'Terminal Growth', value: '6.0–6.5%' },
+      { label: 'Exit EBITDA Margin', value: '~16–17%' }
     ],
     keyOutputs: [
-      { label: 'Intrinsic Value', value: '₹485/share', type: 'neutral' },
-      { label: 'Market Price', value: '₹720+', type: 'negative' },
-      { label: 'Implied Premium', value: '~48%', type: 'negative' }
+      { label: 'Intrinsic Value', value: '₹587/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹691/share', type: 'negative' },
+      { label: 'Implied Premium', value: '~18% (1.18×)', type: 'negative' }
     ],
-    insight: 'Aegis trades at a premium driven by India\'s energy transition tailwinds and LNG infrastructure buildout. DCF suggests limited margin of safety at current levels, though long-term gas demand thesis supports sustained growth.',
-    linkedinUrl: '/projects/Aegis_Logistics_DCF.pdf',
+    insight: 'Aegis Logistics trades at a modest premium, with ~80% of enterprise value derived from terminal value. While free cash flows are stable and growing, valuation remains sensitive to WACC and long-term growth assumptions, limiting margin of safety at current prices.',
+    linkedinUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
     chartType: 'aegis-dcf'
   }
 ];
