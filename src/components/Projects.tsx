@@ -159,6 +159,63 @@ const projects = [
   },
   {
     id: 1,
+    title: 'Aegis Logistics – DCF Valuation',
+    company: 'Aegis Logistics Ltd',
+    sector: 'Oil & Gas / Infrastructure',
+    icon: TrendingUp,
+    summary: 'Built a conservative FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, incorporating risk-adjusted WACC for equity-heavy capital structure, commodity exposure, and India risk premium.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR', value: '~7–9% (FY25E–FY30E)' },
+      { label: 'FCFF CAGR', value: '~5.4%' },
+      { label: 'WACC', value: '11.12%' },
+      { label: 'Terminal Growth', value: '6.0–6.5%' },
+      { label: 'Exit EBITDA Margin', value: '~16–17%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹587/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹691/share', type: 'negative' },
+      { label: 'Implied Premium', value: '~18% (1.18×)', type: 'negative' }
+    ],
+    insight: 'Aegis Logistics trades at a modest premium, with ~80% of enterprise value derived from terminal value. While free cash flows are stable and growing, valuation remains sensitive to WACC and long-term growth assumptions, limiting margin of safety at current prices.',
+    linkedinUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
+    chartType: 'aegis-dcf'
+  },
+  {
+    id: 2,
+    title: 'Britannia – Financial Modeling & Valuation',
+    company: 'Britannia Industries Ltd',
+    sector: 'FMCG',
+    icon: Building2,
+    summary: 'Built a comprehensive financial model and FCFF-based DCF valuation for Britannia Industries.',
+    keyOutputs: [
+      { label: 'WACC', value: '~13.8%', type: 'neutral' },
+      { label: 'Terminal Growth', value: '~5%', type: 'neutral' },
+      { label: 'Intrinsic Value', value: '₹1,780/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹5,700+', type: 'negative' },
+      { label: 'Implied Premium', value: '>3×', type: 'negative' }
+    ],
+    insight: 'Despite strong fundamentals and cash generation, the stock trades at a significant premium, implying extremely optimistic long-term assumptions.',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_britannia-financial-modeling-and-valuation-activity-7350755763247632384-qjM-',
+    chartType: 'valuation'
+  },
+  {
+    id: 3,
+    title: 'ITC – Equity Research Report',
+    company: 'ITC Ltd',
+    sector: 'FMCG',
+    icon: FileText,
+    summary: 'Prepared a full equity research report including business overview, segment analysis, valuation, risks, and catalysts.',
+    valuationSnapshot: [
+      { label: 'P/E', value: '~28× vs sector 53×' },
+      { label: 'Dividend Yield', value: '~4.2%' },
+      { label: 'Debt Status', value: 'Debt-free' }
+    ],
+    investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
+    chartType: 'itc-segment'
+  },
+  {
+    id: 4,
     title: 'Zomato – DCF Valuation',
     company: 'Zomato Ltd',
     sector: 'Technology / Platform Business',
@@ -180,7 +237,7 @@ const projects = [
     chartType: 'zomato'
   },
   {
-    id: 2,
+    id: 5,
     title: 'Britannia – DuPont Analysis',
     company: 'Britannia Industries Ltd',
     sector: 'FMCG',
@@ -196,25 +253,7 @@ const projects = [
     chartType: 'dupont'
   },
   {
-    id: 3,
-    title: 'Britannia – Financial Modeling & Valuation',
-    company: 'Britannia Industries Ltd',
-    sector: 'FMCG',
-    icon: Building2,
-    summary: 'Built a comprehensive financial model and FCFF-based DCF valuation for Britannia Industries.',
-    keyOutputs: [
-      { label: 'WACC', value: '~13.8%', type: 'neutral' },
-      { label: 'Terminal Growth', value: '~5%', type: 'neutral' },
-      { label: 'Intrinsic Value', value: '₹1,780/share', type: 'neutral' },
-      { label: 'Market Price', value: '₹5,700+', type: 'negative' },
-      { label: 'Implied Premium', value: '>3×', type: 'negative' }
-    ],
-    insight: 'Despite strong fundamentals and cash generation, the stock trades at a significant premium, implying extremely optimistic long-term assumptions.',
-    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_britannia-financial-modeling-and-valuation-activity-7350755763247632384-qjM-',
-    chartType: 'valuation'
-  },
-  {
-    id: 4,
+    id: 6,
     title: 'ITC – Financial Statement Analysis',
     company: 'ITC Ltd',
     sector: 'FMCG | Hotels | Paperboards | Agri-Business',
@@ -230,45 +269,6 @@ const projects = [
     insight: 'ITC demonstrates strong cash-flow generation, margin stability, and balance-sheet strength across business cycles.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-financial-analysis-activity-7414871028784418816-GuWP',
     chartType: 'itc-financial'
-  },
-  {
-    id: 5,
-    title: 'ITC – Equity Research Report',
-    company: 'ITC Ltd',
-    sector: 'FMCG',
-    icon: FileText,
-    summary: 'Prepared a full equity research report including business overview, segment analysis, valuation, risks, and catalysts.',
-    valuationSnapshot: [
-      { label: 'P/E', value: '~28× vs sector 53×' },
-      { label: 'Dividend Yield', value: '~4.2%' },
-      { label: 'Debt Status', value: 'Debt-free' }
-    ],
-    investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
-    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
-    chartType: 'itc-segment'
-  },
-  {
-    id: 6,
-    title: 'Aegis Logistics – DCF Valuation',
-    company: 'Aegis Logistics Ltd',
-    sector: 'Oil & Gas / Infrastructure',
-    icon: TrendingUp,
-    summary: 'Built a conservative FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, incorporating risk-adjusted WACC for equity-heavy capital structure, commodity exposure, and India risk premium.',
-    keyAssumptions: [
-      { label: 'Revenue CAGR', value: '~7–9% (FY25E–FY30E)' },
-      { label: 'FCFF CAGR', value: '~5.4%' },
-      { label: 'WACC', value: '11.12%' },
-      { label: 'Terminal Growth', value: '6.0–6.5%' },
-      { label: 'Exit EBITDA Margin', value: '~16–17%' }
-    ],
-    keyOutputs: [
-      { label: 'Intrinsic Value', value: '₹587/share', type: 'neutral' },
-      { label: 'Market Price', value: '₹691/share', type: 'negative' },
-      { label: 'Implied Premium', value: '~18% (1.18×)', type: 'negative' }
-    ],
-    insight: 'Aegis Logistics trades at a modest premium, with ~80% of enterprise value derived from terminal value. While free cash flows are stable and growing, valuation remains sensitive to WACC and long-term growth assumptions, limiting margin of safety at current prices.',
-    linkedinUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
-    chartType: 'aegis-dcf'
   }
 ];
 
