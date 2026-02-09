@@ -444,6 +444,51 @@ const Projects = () => {
             </RechartsPie>
           </ResponsiveContainer>
         );
+      case 'aegis-dcf':
+        return (
+          <div className="space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={aegisFCFFData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(value) => [`₹${value} Cr`, '']} />
+                  <Bar dataKey="fcff" fill="hsl(var(--primary))" name="FCFF" radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey="fcff" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & EBITDA Margin (%)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={aegisRevenueEbitda}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[0, 20]} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
+                  <Line yAxisId="right" type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA Margin (%)" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Business Segments</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <RechartsPie>
+                  <Pie data={aegisSegmentData} cx="50%" cy="50%" innerRadius={18} outerRadius={30} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false}>
+                    {aegisSegmentData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                </RechartsPie>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        );
       default:
         return null;
     }
