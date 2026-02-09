@@ -157,19 +157,22 @@ const Resume = () => {
             
             <div className="space-y-1.5 text-[10px] text-gray-700">
               <div>
-                <span className="font-semibold">Zomato – DCF Valuation:</span> Built FCFF-based DCF model (30% CAGR, 15.4% WACC). Intrinsic Value ₹59 vs Market ₹319 (~5× premium). Identified weak capital efficiency.
+                <span className="font-semibold">Hilton Hotels – LBO Case Study:</span> Modeled Blackstone's acquisition ($25bn EV, 12.5× EBITDA). MOIC: 2.9×, IRR: 23.6%. Value driven by deleveraging and EBITDA growth despite exit multiple compression.
               </div>
               <div>
-                <span className="font-semibold">Britannia – DuPont Analysis:</span> Decomposed ROE (12% Margin, 1.8× Turnover, 1.5× Leverage). ROE driven by operations, not leverage.
+                <span className="font-semibold">Aegis Logistics – DCF Valuation:</span> Conservative FCFF-based model (11.12% WACC, 6.0–6.5% terminal growth). Intrinsic Value ₹587 vs Market ₹691 (~18% premium). ~80% of EV from terminal value.
               </div>
               <div>
-                <span className="font-semibold">Britannia – DCF Valuation:</span> Comprehensive model (13.8% WACC, 5% Terminal). Intrinsic ₹1,780 vs Market ₹5,700+ (&gt;3× premium).
+                <span className="font-semibold">Britannia – Financial Modeling & Valuation:</span> Comprehensive model (13.8% WACC, 5% Terminal). Intrinsic ₹1,780 vs Market ₹5,700+ (&gt;3× premium).
               </div>
               <div>
-                <span className="font-semibold">ITC – Financial Analysis:</span> ₹75,000+ Cr revenue, 34% EBITDA, 23% Net Margin, 28% ROE, Zero Debt. Strong cash generation.
+                <span className="font-semibold">ITC – Equity Research Report:</span> P/E ~28× vs sector 53×, 4.2% yield, debt-free. Attractive risk-reward profile with improving FMCG mix.
               </div>
               <div>
-                <span className="font-semibold">ITC – Equity Research:</span> P/E ~28× vs sector 53×, 4.2% yield, debt-free. Attractive risk-reward profile.
+                <span className="font-semibold">Zomato – DCF Valuation:</span> FCFF-based DCF (30% CAGR, 15.4% WACC). Intrinsic ₹59 vs Market ₹319 (~5× premium). Weak capital efficiency.
+              </div>
+              <div>
+                <span className="font-semibold">ITC – Financial Analysis:</span> ₹75,000+ Cr revenue, 34% EBITDA, 23% Net Margin, 28% ROE, Zero Debt.
               </div>
             </div>
           </div>

@@ -453,10 +453,11 @@ const Projects = () => {
         );
       case 'aegis-dcf':
         return (
-          <div className="space-y-3">
+          <div className="h-[320px] space-y-3">
+            {/* FCFF Projections */}
             <div>
-              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr)</p>
-              <ResponsiveContainer width="100%" height={100}>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr) – 5.4% CAGR</p>
+              <ResponsiveContainer width="100%" height={90}>
                 <ComposedChart data={aegisFCFFData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
@@ -467,32 +468,35 @@ const Projects = () => {
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
+            {/* Revenue & EBITDA Margin */}
             <div>
               <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & EBITDA Margin (%)</p>
-              <ResponsiveContainer width="100%" height={100}>
+              <ResponsiveContainer width="100%" height={90}>
                 <ComposedChart data={aegisRevenueEbitda}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
-                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[0, 20]} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[10, 20]} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
                   <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
                   <Line yAxisId="right" type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA Margin (%)" />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground mb-1 font-medium">Business Segments</p>
-              <ResponsiveContainer width="100%" height={70}>
-                <RechartsPie>
-                  <Pie data={aegisSegmentData} cx="50%" cy="50%" innerRadius={18} outerRadius={30} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false}>
-                    {aegisSegmentData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.fill} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
-                </RechartsPie>
-              </ResponsiveContainer>
+            {/* Valuation Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Intrinsic Value</p>
+                <p className="text-lg font-bold text-primary">₹587</p>
+              </div>
+              <div className="p-2 rounded-lg bg-destructive/10 border border-destructive/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Market Price</p>
+                <p className="text-lg font-bold text-destructive">₹691</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">WACC</p>
+                <p className="text-lg font-bold text-foreground">11.12%</p>
+              </div>
             </div>
           </div>
         );
