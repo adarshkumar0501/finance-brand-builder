@@ -88,6 +88,31 @@ const hiltonReturnMetrics = [
   { metric: 'IRR', value: 23.6, unit: '%', color: 'hsl(var(--primary))' }
 ];
 
+// Aegis Logistics DCF Data
+const aegisFCFFData = [
+  { year: 'FY24', fcff: 320 },
+  { year: 'FY25E', fcff: 410 },
+  { year: 'FY26E', fcff: 530 },
+  { year: 'FY27E', fcff: 680 },
+  { year: 'FY28E', fcff: 820 },
+  { year: 'FY29E', fcff: 980 }
+];
+
+const aegisRevenueEbitda = [
+  { year: 'FY22', revenue: 3200, ebitdaMargin: 8.5 },
+  { year: 'FY23', revenue: 3800, ebitdaMargin: 9.2 },
+  { year: 'FY24', revenue: 4500, ebitdaMargin: 10.1 },
+  { year: 'FY25E', revenue: 5300, ebitdaMargin: 11.0 },
+  { year: 'FY26E', revenue: 6200, ebitdaMargin: 11.8 },
+  { year: 'FY27E', revenue: 7100, ebitdaMargin: 12.5 }
+];
+
+const aegisSegmentData = [
+  { name: 'Gas Distribution', value: 45, fill: 'hsl(var(--primary))' },
+  { name: 'Liquid Terminal', value: 35, fill: 'hsl(var(--accent))' },
+  { name: 'LPG', value: 20, fill: 'hsl(210 40% 60%)' }
+];
+
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
 
 const projects = [
