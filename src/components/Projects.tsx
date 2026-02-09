@@ -685,7 +685,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          View Full Project on LinkedIn
+                          {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : 'View Full Project on LinkedIn'}
                         </a>
                       </Button>
                     </CardContent>
