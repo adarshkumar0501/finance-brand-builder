@@ -88,6 +88,31 @@ const hiltonReturnMetrics = [
   { metric: 'IRR', value: 23.6, unit: '%', color: 'hsl(var(--primary))' }
 ];
 
+// Aegis Logistics DCF Data
+const aegisFCFFData = [
+  { year: 'FY24', fcff: 320 },
+  { year: 'FY25E', fcff: 410 },
+  { year: 'FY26E', fcff: 530 },
+  { year: 'FY27E', fcff: 680 },
+  { year: 'FY28E', fcff: 820 },
+  { year: 'FY29E', fcff: 980 }
+];
+
+const aegisRevenueEbitda = [
+  { year: 'FY22', revenue: 3200, ebitdaMargin: 8.5 },
+  { year: 'FY23', revenue: 3800, ebitdaMargin: 9.2 },
+  { year: 'FY24', revenue: 4500, ebitdaMargin: 10.1 },
+  { year: 'FY25E', revenue: 5300, ebitdaMargin: 11.0 },
+  { year: 'FY26E', revenue: 6200, ebitdaMargin: 11.8 },
+  { year: 'FY27E', revenue: 7100, ebitdaMargin: 12.5 }
+];
+
+const aegisSegmentData = [
+  { name: 'Gas Distribution', value: 45, fill: 'hsl(var(--primary))' },
+  { name: 'Liquid Terminal', value: 35, fill: 'hsl(var(--accent))' },
+  { name: 'LPG', value: 20, fill: 'hsl(210 40% 60%)' }
+];
+
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
 
 const projects = [
@@ -215,6 +240,28 @@ const projects = [
     investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
     chartType: 'itc-segment'
+  },
+  {
+    id: 6,
+    title: 'Aegis Logistics – DCF Valuation',
+    company: 'Aegis Logistics Ltd',
+    sector: 'Oil & Gas / Infrastructure',
+    icon: TrendingUp,
+    summary: 'Built an FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, analyzing its gas distribution and liquid terminal business segments under multi-scenario assumptions.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR', value: '~18% (FY24–FY29E)' },
+      { label: 'WACC', value: '~12.8%' },
+      { label: 'Terminal Growth', value: '~5%' },
+      { label: 'EBITDA Margin (Exit)', value: '~12.5%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹485/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹720+', type: 'negative' },
+      { label: 'Implied Premium', value: '~48%', type: 'negative' }
+    ],
+    insight: 'Aegis trades at a premium driven by India\'s energy transition tailwinds and LNG infrastructure buildout. DCF suggests limited margin of safety at current levels, though long-term gas demand thesis supports sustained growth.',
+    linkedinUrl: '/projects/Aegis_Logistics_DCF.pdf',
+    chartType: 'aegis-dcf'
   }
 ];
 
@@ -396,6 +443,51 @@ const Projects = () => {
               />
             </RechartsPie>
           </ResponsiveContainer>
+        );
+      case 'aegis-dcf':
+        return (
+          <div className="space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={aegisFCFFData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(value) => [`₹${value} Cr`, '']} />
+                  <Bar dataKey="fcff" fill="hsl(var(--primary))" name="FCFF" radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey="fcff" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & EBITDA Margin (%)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={aegisRevenueEbitda}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[0, 20]} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
+                  <Line yAxisId="right" type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA Margin (%)" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Business Segments</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <RechartsPie>
+                  <Pie data={aegisSegmentData} cx="50%" cy="50%" innerRadius={18} outerRadius={30} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false}>
+                    {aegisSegmentData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                </RechartsPie>
+              </ResponsiveContainer>
+            </div>
+          </div>
         );
       default:
         return null;
@@ -593,7 +685,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          View Full Project on LinkedIn
+                          {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : 'View Full Project on LinkedIn'}
                         </a>
                       </Button>
                     </CardContent>
