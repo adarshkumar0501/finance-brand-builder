@@ -88,29 +88,35 @@ const hiltonReturnMetrics = [
   { metric: 'IRR', value: 23.6, unit: '%', color: 'hsl(var(--primary))' }
 ];
 
-// Aegis Logistics DCF Data
+// Aegis Logistics DCF Data - Conservative FCFF-based
 const aegisFCFFData = [
-  { year: 'FY24', fcff: 320 },
-  { year: 'FY25E', fcff: 410 },
-  { year: 'FY26E', fcff: 530 },
-  { year: 'FY27E', fcff: 680 },
-  { year: 'FY28E', fcff: 820 },
-  { year: 'FY29E', fcff: 980 }
+  { year: 'FY25E', fcff: 380 },
+  { year: 'FY26E', fcff: 410 },
+  { year: 'FY27E', fcff: 435 },
+  { year: 'FY28E', fcff: 460 },
+  { year: 'FY29E', fcff: 485 },
+  { year: 'FY30E', fcff: 502 }
 ];
 
 const aegisRevenueEbitda = [
-  { year: 'FY22', revenue: 3200, ebitdaMargin: 8.5 },
-  { year: 'FY23', revenue: 3800, ebitdaMargin: 9.2 },
-  { year: 'FY24', revenue: 4500, ebitdaMargin: 10.1 },
-  { year: 'FY25E', revenue: 5300, ebitdaMargin: 11.0 },
-  { year: 'FY26E', revenue: 6200, ebitdaMargin: 11.8 },
-  { year: 'FY27E', revenue: 7100, ebitdaMargin: 12.5 }
+  { year: 'FY25E', revenue: 5200, ebitdaMargin: 15.2 },
+  { year: 'FY26E', revenue: 5650, ebitdaMargin: 15.6 },
+  { year: 'FY27E', revenue: 6100, ebitdaMargin: 16.0 },
+  { year: 'FY28E', revenue: 6580, ebitdaMargin: 16.3 },
+  { year: 'FY29E', revenue: 7050, ebitdaMargin: 16.6 },
+  { year: 'FY30E', revenue: 7550, ebitdaMargin: 16.9 }
 ];
 
 const aegisSegmentData = [
   { name: 'Gas Distribution', value: 45, fill: 'hsl(var(--primary))' },
   { name: 'Liquid Terminal', value: 35, fill: 'hsl(var(--accent))' },
   { name: 'LPG', value: 20, fill: 'hsl(210 40% 60%)' }
+];
+
+// Aegis - Valuation Sensitivity (WACC vs Terminal Growth)
+const aegisValuationMetrics = [
+  { metric: 'Intrinsic Value', value: 587, color: 'hsl(var(--primary))' },
+  { metric: 'Market Price', value: 691, color: 'hsl(var(--accent))' }
 ];
 
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
@@ -153,6 +159,63 @@ const projects = [
   },
   {
     id: 1,
+    title: 'Aegis Logistics – DCF Valuation',
+    company: 'Aegis Logistics Ltd',
+    sector: 'Oil & Gas / Infrastructure',
+    icon: TrendingUp,
+    summary: 'Built a conservative FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, incorporating risk-adjusted WACC for equity-heavy capital structure, commodity exposure, and India risk premium.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR', value: '~7–9% (FY25E–FY30E)' },
+      { label: 'FCFF CAGR', value: '~5.4%' },
+      { label: 'WACC', value: '11.12%' },
+      { label: 'Terminal Growth', value: '6.0–6.5%' },
+      { label: 'Exit EBITDA Margin', value: '~16–17%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹587/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹691/share', type: 'negative' },
+      { label: 'Implied Premium', value: '~18% (1.18×)', type: 'negative' }
+    ],
+    insight: 'Aegis Logistics trades at a modest premium, with ~80% of enterprise value derived from terminal value. While free cash flows are stable and growing, valuation remains sensitive to WACC and long-term growth assumptions, limiting margin of safety at current prices.',
+    linkedinUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
+    chartType: 'aegis-dcf'
+  },
+  {
+    id: 2,
+    title: 'Britannia – Financial Modeling & Valuation',
+    company: 'Britannia Industries Ltd',
+    sector: 'FMCG',
+    icon: Building2,
+    summary: 'Built a comprehensive financial model and FCFF-based DCF valuation for Britannia Industries.',
+    keyOutputs: [
+      { label: 'WACC', value: '~13.8%', type: 'neutral' },
+      { label: 'Terminal Growth', value: '~5%', type: 'neutral' },
+      { label: 'Intrinsic Value', value: '₹1,780/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹5,700+', type: 'negative' },
+      { label: 'Implied Premium', value: '>3×', type: 'negative' }
+    ],
+    insight: 'Despite strong fundamentals and cash generation, the stock trades at a significant premium, implying extremely optimistic long-term assumptions.',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_britannia-financial-modeling-and-valuation-activity-7350755763247632384-qjM-',
+    chartType: 'valuation'
+  },
+  {
+    id: 3,
+    title: 'ITC – Equity Research Report',
+    company: 'ITC Ltd',
+    sector: 'FMCG',
+    icon: FileText,
+    summary: 'Prepared a full equity research report including business overview, segment analysis, valuation, risks, and catalysts.',
+    valuationSnapshot: [
+      { label: 'P/E', value: '~28× vs sector 53×' },
+      { label: 'Dividend Yield', value: '~4.2%' },
+      { label: 'Debt Status', value: 'Debt-free' }
+    ],
+    investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
+    chartType: 'itc-segment'
+  },
+  {
+    id: 4,
     title: 'Zomato – DCF Valuation',
     company: 'Zomato Ltd',
     sector: 'Technology / Platform Business',
@@ -174,7 +237,7 @@ const projects = [
     chartType: 'zomato'
   },
   {
-    id: 2,
+    id: 5,
     title: 'Britannia – DuPont Analysis',
     company: 'Britannia Industries Ltd',
     sector: 'FMCG',
@@ -190,25 +253,7 @@ const projects = [
     chartType: 'dupont'
   },
   {
-    id: 3,
-    title: 'Britannia – Financial Modeling & Valuation',
-    company: 'Britannia Industries Ltd',
-    sector: 'FMCG',
-    icon: Building2,
-    summary: 'Built a comprehensive financial model and FCFF-based DCF valuation for Britannia Industries.',
-    keyOutputs: [
-      { label: 'WACC', value: '~13.8%', type: 'neutral' },
-      { label: 'Terminal Growth', value: '~5%', type: 'neutral' },
-      { label: 'Intrinsic Value', value: '₹1,780/share', type: 'neutral' },
-      { label: 'Market Price', value: '₹5,700+', type: 'negative' },
-      { label: 'Implied Premium', value: '>3×', type: 'negative' }
-    ],
-    insight: 'Despite strong fundamentals and cash generation, the stock trades at a significant premium, implying extremely optimistic long-term assumptions.',
-    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_britannia-financial-modeling-and-valuation-activity-7350755763247632384-qjM-',
-    chartType: 'valuation'
-  },
-  {
-    id: 4,
+    id: 6,
     title: 'ITC – Financial Statement Analysis',
     company: 'ITC Ltd',
     sector: 'FMCG | Hotels | Paperboards | Agri-Business',
@@ -224,44 +269,6 @@ const projects = [
     insight: 'ITC demonstrates strong cash-flow generation, margin stability, and balance-sheet strength across business cycles.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-financial-analysis-activity-7414871028784418816-GuWP',
     chartType: 'itc-financial'
-  },
-  {
-    id: 5,
-    title: 'ITC – Equity Research Report',
-    company: 'ITC Ltd',
-    sector: 'FMCG',
-    icon: FileText,
-    summary: 'Prepared a full equity research report including business overview, segment analysis, valuation, risks, and catalysts.',
-    valuationSnapshot: [
-      { label: 'P/E', value: '~28× vs sector 53×' },
-      { label: 'Dividend Yield', value: '~4.2%' },
-      { label: 'Debt Status', value: 'Debt-free' }
-    ],
-    investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
-    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
-    chartType: 'itc-segment'
-  },
-  {
-    id: 6,
-    title: 'Aegis Logistics – DCF Valuation',
-    company: 'Aegis Logistics Ltd',
-    sector: 'Oil & Gas / Infrastructure',
-    icon: TrendingUp,
-    summary: 'Built an FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, analyzing its gas distribution and liquid terminal business segments under multi-scenario assumptions.',
-    keyAssumptions: [
-      { label: 'Revenue CAGR', value: '~18% (FY24–FY29E)' },
-      { label: 'WACC', value: '~12.8%' },
-      { label: 'Terminal Growth', value: '~5%' },
-      { label: 'EBITDA Margin (Exit)', value: '~12.5%' }
-    ],
-    keyOutputs: [
-      { label: 'Intrinsic Value', value: '₹485/share', type: 'neutral' },
-      { label: 'Market Price', value: '₹720+', type: 'negative' },
-      { label: 'Implied Premium', value: '~48%', type: 'negative' }
-    ],
-    insight: 'Aegis trades at a premium driven by India\'s energy transition tailwinds and LNG infrastructure buildout. DCF suggests limited margin of safety at current levels, though long-term gas demand thesis supports sustained growth.',
-    linkedinUrl: '/projects/Aegis_Logistics_DCF.pdf',
-    chartType: 'aegis-dcf'
   }
 ];
 
@@ -446,10 +453,11 @@ const Projects = () => {
         );
       case 'aegis-dcf':
         return (
-          <div className="space-y-3">
+          <div className="h-[320px] space-y-3">
+            {/* FCFF Projections */}
             <div>
-              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr)</p>
-              <ResponsiveContainer width="100%" height={100}>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">FCFF Projections (₹Cr) – 5.4% CAGR</p>
+              <ResponsiveContainer width="100%" height={90}>
                 <ComposedChart data={aegisFCFFData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
@@ -460,32 +468,35 @@ const Projects = () => {
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
+            {/* Revenue & EBITDA Margin */}
             <div>
               <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & EBITDA Margin (%)</p>
-              <ResponsiveContainer width="100%" height={100}>
+              <ResponsiveContainer width="100%" height={90}>
                 <ComposedChart data={aegisRevenueEbitda}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
                   <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
-                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[0, 20]} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[10, 20]} />
                   <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
                   <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
                   <Line yAxisId="right" type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA Margin (%)" />
                 </ComposedChart>
               </ResponsiveContainer>
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground mb-1 font-medium">Business Segments</p>
-              <ResponsiveContainer width="100%" height={70}>
-                <RechartsPie>
-                  <Pie data={aegisSegmentData} cx="50%" cy="50%" innerRadius={18} outerRadius={30} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false}>
-                    {aegisSegmentData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.fill} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
-                </RechartsPie>
-              </ResponsiveContainer>
+            {/* Valuation Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Intrinsic Value</p>
+                <p className="text-lg font-bold text-primary">₹587</p>
+              </div>
+              <div className="p-2 rounded-lg bg-destructive/10 border border-destructive/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Market Price</p>
+                <p className="text-lg font-bold text-destructive">₹691</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">WACC</p>
+                <p className="text-lg font-bold text-foreground">11.12%</p>
+              </div>
             </div>
           </div>
         );
@@ -685,7 +696,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : 'View Full Project on LinkedIn'}
+                          {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : project.linkedinUrl.includes('1drv.ms') ? 'View Full Project (OneDrive)' : 'View Full Project on LinkedIn'}
                         </a>
                       </Button>
                     </CardContent>
