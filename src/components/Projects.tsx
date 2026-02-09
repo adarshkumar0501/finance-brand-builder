@@ -240,6 +240,28 @@ const projects = [
     investmentView: 'Strong cash flows, improving FMCG mix, and capital discipline support attractive risk-reward, with regulatory risks clearly identified.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-equity-research-report-activity-7421105963874816001-N4si',
     chartType: 'itc-segment'
+  },
+  {
+    id: 6,
+    title: 'Aegis Logistics – DCF Valuation',
+    company: 'Aegis Logistics Ltd',
+    sector: 'Oil & Gas / Infrastructure',
+    icon: TrendingUp,
+    summary: 'Built an FCFF-based DCF model to estimate Aegis Logistics\' intrinsic value, analyzing its gas distribution and liquid terminal business segments under multi-scenario assumptions.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR', value: '~18% (FY24–FY29E)' },
+      { label: 'WACC', value: '~12.8%' },
+      { label: 'Terminal Growth', value: '~5%' },
+      { label: 'EBITDA Margin (Exit)', value: '~12.5%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹485/share', type: 'neutral' },
+      { label: 'Market Price', value: '₹720+', type: 'negative' },
+      { label: 'Implied Premium', value: '~48%', type: 'negative' }
+    ],
+    insight: 'Aegis trades at a premium driven by India\'s energy transition tailwinds and LNG infrastructure buildout. DCF suggests limited margin of safety at current levels, though long-term gas demand thesis supports sustained growth.',
+    linkedinUrl: '/projects/Aegis_Logistics_DCF.pdf',
+    chartType: 'aegis-dcf'
   }
 ];
 
