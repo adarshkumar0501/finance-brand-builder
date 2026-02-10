@@ -177,7 +177,8 @@ const projects = [
       { label: 'Implied Premium', value: '~18% (1.18×)', type: 'negative' }
     ],
     insight: 'Aegis Logistics trades at a modest premium, with ~80% of enterprise value derived from terminal value. While free cash flows are stable and growing, valuation remains sensitive to WACC and long-term growth assumptions, limiting margin of safety at current prices.',
-    linkedinUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
+    linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_aegis-logistic-dcf-activity-7426826006407106560-RGXp?utm_source=share&utm_medium=member_android&rcm=ACoAAD-i-LYB1CFD27drBgEv2IkcEMEtXRny2UM',
+    oneDriveUrl: 'https://1drv.ms/f/c/b46469d9a9abd7cf/IgBX_P0kOERBTIQsEiWbv-h3AYoEjFMfYCIQ12fi_UrGeog?e=GC0osH',
     chartType: 'aegis-dcf'
   },
   {
@@ -680,25 +681,47 @@ const Projects = () => {
                         </div>
                       </div>
 
-                      {/* LinkedIn CTA */}
-                      <Button 
-                        asChild
-                        variant="outline"
-                        className={`w-full sm:w-auto ${
-                          isAccent 
-                            ? 'border-accent/30 text-accent hover:bg-accent/5 hover:border-accent' 
-                            : 'border-primary/30 text-primary hover:bg-primary/5 hover:border-primary'
-                        }`}
-                      >
-                        <a 
-                          href={project.linkedinUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      {/* Project CTAs */}
+                      <div className="flex flex-wrap gap-2">
+                        <Button 
+                          asChild
+                          variant="outline"
+                          className={`w-full sm:w-auto ${
+                            isAccent 
+                              ? 'border-accent/30 text-accent hover:bg-accent/5 hover:border-accent' 
+                              : 'border-primary/30 text-primary hover:bg-primary/5 hover:border-primary'
+                          }`}
                         >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : project.linkedinUrl.includes('1drv.ms') ? 'View Full Project (OneDrive)' : 'View Full Project on LinkedIn'}
-                        </a>
-                      </Button>
+                          <a 
+                            href={project.linkedinUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            {project.linkedinUrl.endsWith('.pdf') ? 'View Full Report (PDF)' : project.linkedinUrl.includes('1drv.ms') ? 'View Full Project (OneDrive)' : 'View Full Project on LinkedIn'}
+                          </a>
+                        </Button>
+                        {(project as any).oneDriveUrl && (
+                          <Button 
+                            asChild
+                            variant="outline"
+                            className={`w-full sm:w-auto ${
+                              isAccent 
+                                ? 'border-accent/30 text-accent hover:bg-accent/5 hover:border-accent' 
+                                : 'border-primary/30 text-primary hover:bg-primary/5 hover:border-primary'
+                            }`}
+                          >
+                            <a 
+                              href={(project as any).oneDriveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              View Full Project (OneDrive)
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </CardContent>
                   </div>
                 </div>
