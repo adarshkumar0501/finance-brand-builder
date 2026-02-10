@@ -398,91 +398,202 @@ const Projects = () => {
         );
       case 'dupont':
         return (
-          <div className="h-[180px] flex items-center justify-center">
-            <div className="flex items-center space-x-4">
-              {britanniaRoeData.map((item, index) => (
-                <div key={item.component} className="text-center">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold text-primary-foreground mb-2 ${
-                    index === 1 ? 'bg-accent' : 'bg-primary'
-                  }`}>
-                    {typeof item.value === 'number' && item.value < 10 ? `${item.value.toFixed(1)}x` : `${item.value}%`}
-                  </div>
-                  <p className="text-xs text-muted-foreground">{item.component}</p>
-                  {index < britanniaRoeData.length - 1 && (
-                    <span className="text-lg text-muted-foreground absolute ml-20 -mt-12">×</span>
-                  )}
-                </div>
-              ))}
+          <div className="h-[320px] space-y-3">
+            {/* DuPont Circles */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">DuPont Decomposition</p>
+              <div className="flex items-center justify-center space-x-3 py-2">
+                {britanniaRoeData.map((item, index) => (
+                  <React.Fragment key={item.component}>
+                    <div className="text-center">
+                      <div className={`w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold text-primary-foreground ${
+                        index === 1 ? 'bg-accent' : 'bg-primary'
+                      }`}>
+                        {typeof item.value === 'number' && item.value < 10 ? `${item.value.toFixed(1)}×` : `${item.value}%`}
+                      </div>
+                      <p className="text-[10px] text-muted-foreground mt-1">{item.component}</p>
+                    </div>
+                    {index < britanniaRoeData.length - 1 && (
+                      <span className="text-lg text-muted-foreground font-bold">×</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+            {/* ROE Trend Chart */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">ROE Trend & Net Margin (%)</p>
+              <ResponsiveContainer width="100%" height={90}>
+                <ComposedChart data={britanniaDupontTrend}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Bar dataKey="roe" fill="hsl(var(--primary))" name="ROE (%)" radius={[3, 3, 0, 0]} />
+                  <Line type="monotone" dataKey="netMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="Net Margin (%)" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Key Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">ROE</p>
+                <p className="text-lg font-bold text-primary">~45%</p>
+              </div>
+              <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Net Margin</p>
+                <p className="text-lg font-bold text-accent">12.4%</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">Leverage</p>
+                <p className="text-lg font-bold text-foreground">Low</p>
+              </div>
             </div>
           </div>
         );
       case 'valuation':
         return (
-          <ResponsiveContainer width="100%" height={180}>
-            <BarChart data={britanniaValuationData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis type="number" tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} />
-              <YAxis dataKey="metric" type="category" tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} width={100} />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'hsl(var(--card))', 
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '8px',
-                  fontSize: '12px'
-                }}
-                formatter={(value) => [`₹${value}`, 'Per Share']}
-              />
-              <Bar dataKey="value" radius={[0, 4, 4, 0]}>
-                {britanniaValuationData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.fill} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="h-[320px] space-y-3">
+            {/* Revenue Trend */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & Net Margin (%)</p>
+              <ResponsiveContainer width="100%" height={100}>
+                <ComposedChart data={britanniaRevenueTrend}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[8, 15]} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
+                  <Line yAxisId="right" type="monotone" dataKey="netMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="Net Margin (%)" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Valuation Gap */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Intrinsic vs Market (₹/share)</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <BarChart data={britanniaValuationData} layout="vertical">
+                  <XAxis type="number" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis dataKey="metric" type="category" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} width={80} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(value) => [`₹${value}`, '']} />
+                  <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                    {britanniaValuationData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Intrinsic</p>
+                <p className="text-lg font-bold text-primary">₹1,780</p>
+              </div>
+              <div className="p-2 rounded-lg bg-destructive/10 border border-destructive/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Market</p>
+                <p className="text-lg font-bold text-destructive">₹5,700+</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">WACC</p>
+                <p className="text-lg font-bold text-foreground">13.8%</p>
+              </div>
+            </div>
+          </div>
         );
       case 'itc-financial':
         return (
-          <div className="h-[180px] grid grid-cols-2 gap-3 p-2">
-            {itcFinancialData.map((item, index) => (
-              <div key={item.metric} className={`p-3 rounded-lg border ${
-                index % 2 === 0 ? 'bg-primary/5 border-primary/20' : 'bg-accent/5 border-accent/20'
-              }`}>
-                <p className="text-xs text-muted-foreground mb-1">{item.metric}</p>
-                <p className={`text-xl font-bold ${index % 2 === 0 ? 'text-primary' : 'text-accent'}`}>
-                  {item.metric.includes('₹') ? `₹${(item.value / 1000).toFixed(0)}K Cr` : `${item.value}%`}
-                </p>
-              </div>
-            ))}
+          <div className="h-[320px] space-y-3">
+            {/* Revenue & Profitability */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & Margins (%)</p>
+              <ResponsiveContainer width="100%" height={110}>
+                <ComposedChart data={itcRevenueTrend}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[15, 40]} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Area yAxisId="left" type="monotone" dataKey="revenue" fill="hsl(var(--primary))" fillOpacity={0.15} stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue (₹Cr)" />
+                  <Line yAxisId="right" type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="EBITDA Margin (%)" />
+                  <Line yAxisId="right" type="monotone" dataKey="netMargin" stroke="hsl(210 40% 60%)" strokeWidth={2} dot={{ fill: 'hsl(210 40% 60%)', r: 3 }} name="Net Margin (%)" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Key Metrics Grid */}
+            <div className="grid grid-cols-2 gap-2">
+              {itcFinancialData.map((item, index) => (
+                <div key={item.metric} className={`p-2 rounded-lg border ${
+                  index % 2 === 0 ? 'bg-primary/10 border-primary/20' : 'bg-accent/10 border-accent/20'
+                }`}>
+                  <p className="text-[10px] text-muted-foreground">{item.metric}</p>
+                  <p className={`text-lg font-bold ${index % 2 === 0 ? 'text-primary' : 'text-accent'}`}>
+                    {item.metric.includes('₹') ? `₹${(item.value / 1000).toFixed(0)}K Cr` : `${item.value}%`}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         );
       case 'itc-segment':
         return (
-          <ResponsiveContainer width="100%" height={180}>
-            <RechartsPie>
-              <Pie
-                data={itcSegmentData}
-                cx="50%"
-                cy="50%"
-                innerRadius={35}
-                outerRadius={65}
-                dataKey="value"
-                label={({ name, value }) => `${name}: ${value}%`}
-                labelLine={false}
-              >
-                {itcSegmentData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'hsl(var(--card))', 
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '8px',
-                  fontSize: '12px'
-                }}
-              />
-            </RechartsPie>
-          </ResponsiveContainer>
+          <div className="h-[320px] space-y-3">
+            {/* Segment Pie */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue Mix by Segment (%)</p>
+              <ResponsiveContainer width="100%" height={130}>
+                <RechartsPie>
+                  <Pie
+                    data={itcSegmentData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={30}
+                    outerRadius={55}
+                    dataKey="value"
+                    label={({ name, value }) => `${name}: ${value}%`}
+                    labelLine={false}
+                  >
+                    {itcSegmentData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                </RechartsPie>
+              </ResponsiveContainer>
+            </div>
+            {/* P/E Comparison */}
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">P/E Valuation vs Sector</p>
+              <ResponsiveContainer width="100%" height={60}>
+                <BarChart data={itcValuationComparison} layout="vertical">
+                  <XAxis type="number" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis dataKey="metric" type="category" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} width={80} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(value) => [`${value}×`, '']} />
+                  <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                    {itcValuationComparison.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Key Metrics */}
+            <div className="grid grid-cols-3 gap-2">
+              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-[10px] text-muted-foreground">P/E Ratio</p>
+                <p className="text-lg font-bold text-primary">~28×</p>
+              </div>
+              <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 text-center">
+                <p className="text-[10px] text-muted-foreground">Div. Yield</p>
+                <p className="text-lg font-bold text-accent">4.2%</p>
+              </div>
+              <div className="p-2 rounded-lg bg-muted border border-border text-center">
+                <p className="text-[10px] text-muted-foreground">Debt</p>
+                <p className="text-lg font-bold text-foreground">Zero</p>
+              </div>
+            </div>
+          </div>
         );
       case 'aegis-dcf':
         return (
