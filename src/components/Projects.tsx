@@ -43,6 +43,24 @@ const britanniaValuationData = [
   { metric: 'Market Price', value: 5700, fill: 'hsl(var(--accent))' }
 ];
 
+// Britannia Revenue & Margin Trend
+const britanniaRevenueTrend = [
+  { year: 'FY21', revenue: 13400, netMargin: 11.2 },
+  { year: 'FY22', revenue: 14300, netMargin: 10.8 },
+  { year: 'FY23', revenue: 16000, netMargin: 11.5 },
+  { year: 'FY24', revenue: 16500, netMargin: 12.1 },
+  { year: 'FY25E', revenue: 17800, netMargin: 12.4 }
+];
+
+// Britannia DuPont Decomposition Trend
+const britanniaDupontTrend = [
+  { year: 'FY21', roe: 38, netMargin: 11.2, assetTurnover: 1.7, equityMultiplier: 2.0 },
+  { year: 'FY22', roe: 35, netMargin: 10.8, assetTurnover: 1.6, equityMultiplier: 2.0 },
+  { year: 'FY23', roe: 42, netMargin: 11.5, assetTurnover: 1.8, equityMultiplier: 2.0 },
+  { year: 'FY24', roe: 44, netMargin: 12.1, assetTurnover: 1.8, equityMultiplier: 2.0 },
+  { year: 'FY25E', roe: 45, netMargin: 12.4, assetTurnover: 1.9, equityMultiplier: 1.9 }
+];
+
 // ITC Financial Data
 const itcFinancialData = [
   { metric: 'Revenue (₹Cr)', value: 75000 },
@@ -58,6 +76,20 @@ const itcSegmentData = [
   { name: 'Hotels', value: 8, fill: 'hsl(210 40% 60%)' },
   { name: 'Agri', value: 18, fill: 'hsl(210 40% 70%)' },
   { name: 'Paper', value: 14, fill: 'hsl(180 40% 50%)' }
+];
+
+// ITC Revenue & Profitability Trend
+const itcRevenueTrend = [
+  { year: 'FY21', revenue: 49000, ebitdaMargin: 33, netMargin: 22 },
+  { year: 'FY22', revenue: 60000, ebitdaMargin: 34, netMargin: 23 },
+  { year: 'FY23', revenue: 70000, ebitdaMargin: 35, netMargin: 24 },
+  { year: 'FY24', revenue: 75000, ebitdaMargin: 34, netMargin: 23 }
+];
+
+// ITC Valuation Comparison
+const itcValuationComparison = [
+  { metric: 'ITC P/E', value: 28, fill: 'hsl(var(--primary))' },
+  { metric: 'Sector Avg P/E', value: 53, fill: 'hsl(var(--accent))' }
 ];
 
 // Hilton LBO Data - Capital Structure
