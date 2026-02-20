@@ -287,7 +287,7 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 Adarsh Kumar. Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
+              © 2026 Adarsh Kumar. Entry-Level Financial Analyst | Valuation, Equity Research & Financial Modeling
             </p>
           </div>
         </div>
