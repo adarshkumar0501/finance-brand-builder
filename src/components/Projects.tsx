@@ -357,6 +357,50 @@ const projects = [
     insight: 'ITC demonstrates strong cash-flow generation, margin stability, and balance-sheet strength across business cycles.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-financial-analysis-activity-7414871028784418816-GuWP',
     chartType: 'itc-financial'
+  },
+  {
+    id: 7,
+    title: 'Aura IPO Analysis',
+    company: 'Aura (D2C Consumer Brand)',
+    sector: 'Consumer / IPO',
+    icon: TrendingUp,
+    summary: 'IPO analysis evaluating financial trajectory, valuation methodologies, and recommended price band, with a focus on D2C-led margin expansion.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR (FY22–24)', value: '~43%' },
+      { label: 'EBITDA Margin', value: '7.5% → 12%' },
+      { label: 'D2C Mix', value: '~68%' },
+      { label: 'Valuation Approach', value: 'DCF + EV/EBITDA + P/E' }
+    ],
+    keyOutputs: [
+      { label: 'Recommended Band', value: '₹115–₹140', type: 'neutral' },
+      { label: 'DCF Value', value: '₹128', type: 'neutral' },
+      { label: 'EV/EBITDA Value', value: '₹135', type: 'neutral' }
+    ],
+    insight: 'Strong margin expansion driven by D2C mix shift; valuation suggests moderate upside with execution and channel-mix risks.',
+    linkedinUrl: 'https://www.linkedin.com',
+    chartType: 'aura-ipo'
+  },
+  {
+    id: 8,
+    title: 'Pennar Industries – Equity Research',
+    company: 'Pennar Industries Ltd',
+    sector: 'Engineering / Steel Products',
+    icon: BarChart3,
+    summary: 'Equity research note covering revenue and margin trajectory, capital efficiency, segment mix, and DCF-based intrinsic value.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR (FY21–25E)', value: '~19%' },
+      { label: 'EBITDA Margin', value: '7.0% → 9.0%' },
+      { label: 'ROCE (FY25E)', value: '~21.8%' },
+      { label: 'WACC', value: '~12.5%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹195/share', type: 'positive' },
+      { label: 'Equity Value', value: '₹2,630 Cr', type: 'neutral' },
+      { label: 'Net Debt', value: '₹420 Cr', type: 'neutral' }
+    ],
+    insight: 'Operating leverage is improving margins and cash flow generation has turned around, supporting a constructive view at current valuations.',
+    linkedinUrl: 'https://www.linkedin.com',
+    chartType: 'pennar'
   }
 ];
 
