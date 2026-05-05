@@ -153,6 +153,61 @@ const aegisValuationMetrics = [
 
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
 
+// Aura IPO Data
+const auraRevenueGrowth = [
+  { year: 'FY22', revenue: 95, growth: 0 },
+  { year: 'FY23', revenue: 138, growth: 45 },
+  { year: 'FY24', revenue: 195, growth: 41 }
+];
+const auraEbitdaMargin = [
+  { year: 'FY22', margin: 7.5 },
+  { year: 'FY23', margin: 9.6 },
+  { year: 'FY24', margin: 12.0 }
+];
+const auraValuation = [
+  { method: 'DCF', value: 128, fill: 'hsl(var(--primary))' },
+  { method: 'EV/EBITDA', value: 135, fill: 'hsl(var(--accent))' },
+  { method: 'P/E', value: 122, fill: 'hsl(210 40% 60%)' }
+];
+const auraRevenueMix = [
+  { name: 'D2C', value: 68, fill: 'hsl(var(--primary))' },
+  { name: 'Other Channels', value: 32, fill: 'hsl(var(--accent))' }
+];
+
+// Pennar Industries Data
+const pennarRevEbitda = [
+  { year: 'FY21', revenue: 1850, ebitda: 130 },
+  { year: 'FY22', revenue: 2350, ebitda: 175 },
+  { year: 'FY23', revenue: 2900, ebitda: 230 },
+  { year: 'FY24', revenue: 3320, ebitda: 285 },
+  { year: 'FY25E', revenue: 3780, ebitda: 340 }
+];
+const pennarMargins = [
+  { year: 'FY21', ebitdaMargin: 7.0, patMargin: 2.1 },
+  { year: 'FY22', ebitdaMargin: 7.4, patMargin: 2.6 },
+  { year: 'FY23', ebitdaMargin: 7.9, patMargin: 3.2 },
+  { year: 'FY24', ebitdaMargin: 8.6, patMargin: 3.8 },
+  { year: 'FY25E', ebitdaMargin: 9.0, patMargin: 4.3 }
+];
+const pennarReturns = [
+  { year: 'FY21', roe: 9.5, roce: 13.2 },
+  { year: 'FY22', roe: 11.8, roce: 15.6 },
+  { year: 'FY23', roe: 14.2, roce: 17.9 },
+  { year: 'FY24', roe: 16.8, roce: 19.8 },
+  { year: 'FY25E', roe: 18.5, roce: 21.8 }
+];
+const pennarSegments = [
+  { name: 'PEB', value: 38, fill: 'hsl(var(--primary))' },
+  { name: 'Steel Products', value: 27, fill: 'hsl(var(--accent))' },
+  { name: 'Engineering Services', value: 20, fill: 'hsl(210 40% 60%)' },
+  { name: 'Tubes & Others', value: 15, fill: 'hsl(180 40% 50%)' }
+];
+const pennarDcf = [
+  { metric: 'Enterprise Value', value: 3050, fill: 'hsl(var(--primary))' },
+  { metric: 'Net Debt', value: 420, fill: 'hsl(0 60% 55%)' },
+  { metric: 'Equity Value', value: 2630, fill: 'hsl(var(--accent))' }
+];
+
 const projects = [
   {
     id: 0,
