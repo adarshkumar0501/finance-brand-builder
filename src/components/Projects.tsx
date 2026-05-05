@@ -893,7 +893,10 @@ const Projects = () => {
         </div>
 
         <div className="space-y-8">
-          {projects.map((project, index) => {
+          {[...projects].sort((a, b) => {
+            const order = [7, 2, 3, 0, 4, 1, 5, 6, 8];
+            return order.indexOf(a.id) - order.indexOf(b.id);
+          }).map((project, index) => {
             const Icon = project.icon;
             const isAccent = index % 2 === 1;
             const isFeatured = (project as any).isFeatured;
