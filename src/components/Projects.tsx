@@ -743,6 +743,139 @@ const Projects = () => {
             </div>
           </div>
         );
+      case 'aura-ipo':
+        return (
+          <div className="h-[320px] space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & Growth (%)</p>
+              <ResponsiveContainer width="100%" height={90}>
+                <ComposedChart data={auraRevenueGrowth}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Bar yAxisId="left" dataKey="revenue" fill="hsl(var(--primary))" name="Revenue" radius={[3, 3, 0, 0]} />
+                  <Line yAxisId="right" type="monotone" dataKey="growth" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="Growth %" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">EBITDA Margin (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={auraEbitdaMargin}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[5, 14]} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="margin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Revenue Mix</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <RechartsPie>
+                    <Pie data={auraRevenueMix} cx="50%" cy="50%" innerRadius={20} outerRadius={35} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false} style={{ fontSize: 8 }}>
+                      {auraRevenueMix.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Pie>
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  </RechartsPie>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Valuation Comparison (₹/share)</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <BarChart data={auraValuation}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="method" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`₹${v}`, '']} />
+                  <Bar dataKey="value" radius={[3, 3, 0, 0]}>
+                    {auraValuation.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <p className="text-[10px] text-accent mt-1 font-medium text-center">Recommended Band: ₹115–₹140</p>
+            </div>
+          </div>
+        );
+      case 'pennar':
+        return (
+          <div className="h-[320px] space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue & EBITDA (₹Cr)</p>
+              <ResponsiveContainer width="100%" height={90}>
+                <BarChart data={pennarRevEbitda}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Legend wrapperStyle={{ fontSize: 8 }} />
+                  <Bar dataKey="revenue" fill="hsl(var(--primary))" name="Revenue" radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="ebitda" fill="hsl(var(--accent))" name="EBITDA" radius={[2, 2, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Margins (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={pennarMargins}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 2 }} name="EBITDA %" />
+                    <Line type="monotone" dataKey="patMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ r: 2 }} name="PAT %" />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">ROE & ROCE (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={pennarReturns}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="roe" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 2 }} name="ROE" />
+                    <Line type="monotone" dataKey="roce" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ r: 2 }} name="ROCE" />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Segment Mix (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <RechartsPie>
+                    <Pie data={pennarSegments} cx="50%" cy="50%" innerRadius={18} outerRadius={35} dataKey="value" label={({ value }) => `${value}%`} labelLine={false} style={{ fontSize: 7 }}>
+                      {pennarSegments.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Pie>
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  </RechartsPie>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">DCF Bridge (₹Cr)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <BarChart data={pennarDcf} layout="vertical">
+                    <XAxis type="number" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis dataKey="metric" type="category" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} width={70} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`₹${v} Cr`, '']} />
+                    <Bar dataKey="value" radius={[0, 3, 3, 0]}>
+                      {pennarDcf.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <p className="text-[10px] text-accent font-medium text-center">Intrinsic Value: ₹195/share · ROCE ~21.8%</p>
+          </div>
+        );
       default:
         return null;
     }
