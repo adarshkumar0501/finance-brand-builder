@@ -153,6 +153,61 @@ const aegisValuationMetrics = [
 
 const CHART_COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(210 40% 60%)', 'hsl(210 40% 70%)', 'hsl(180 40% 50%)'];
 
+// Aura IPO Data
+const auraRevenueGrowth = [
+  { year: 'FY22', revenue: 95, growth: 0 },
+  { year: 'FY23', revenue: 138, growth: 45 },
+  { year: 'FY24', revenue: 195, growth: 41 }
+];
+const auraEbitdaMargin = [
+  { year: 'FY22', margin: 7.5 },
+  { year: 'FY23', margin: 9.6 },
+  { year: 'FY24', margin: 12.0 }
+];
+const auraValuation = [
+  { method: 'DCF', value: 128, fill: 'hsl(var(--primary))' },
+  { method: 'EV/EBITDA', value: 135, fill: 'hsl(var(--accent))' },
+  { method: 'P/E', value: 122, fill: 'hsl(210 40% 60%)' }
+];
+const auraRevenueMix = [
+  { name: 'D2C', value: 68, fill: 'hsl(var(--primary))' },
+  { name: 'Other Channels', value: 32, fill: 'hsl(var(--accent))' }
+];
+
+// Pennar Industries Data
+const pennarRevEbitda = [
+  { year: 'FY21', revenue: 1850, ebitda: 130 },
+  { year: 'FY22', revenue: 2350, ebitda: 175 },
+  { year: 'FY23', revenue: 2900, ebitda: 230 },
+  { year: 'FY24', revenue: 3320, ebitda: 285 },
+  { year: 'FY25E', revenue: 3780, ebitda: 340 }
+];
+const pennarMargins = [
+  { year: 'FY21', ebitdaMargin: 7.0, patMargin: 2.1 },
+  { year: 'FY22', ebitdaMargin: 7.4, patMargin: 2.6 },
+  { year: 'FY23', ebitdaMargin: 7.9, patMargin: 3.2 },
+  { year: 'FY24', ebitdaMargin: 8.6, patMargin: 3.8 },
+  { year: 'FY25E', ebitdaMargin: 9.0, patMargin: 4.3 }
+];
+const pennarReturns = [
+  { year: 'FY21', roe: 9.5, roce: 13.2 },
+  { year: 'FY22', roe: 11.8, roce: 15.6 },
+  { year: 'FY23', roe: 14.2, roce: 17.9 },
+  { year: 'FY24', roe: 16.8, roce: 19.8 },
+  { year: 'FY25E', roe: 18.5, roce: 21.8 }
+];
+const pennarSegments = [
+  { name: 'PEB', value: 38, fill: 'hsl(var(--primary))' },
+  { name: 'Steel Products', value: 27, fill: 'hsl(var(--accent))' },
+  { name: 'Engineering Services', value: 20, fill: 'hsl(210 40% 60%)' },
+  { name: 'Tubes & Others', value: 15, fill: 'hsl(180 40% 50%)' }
+];
+const pennarDcf = [
+  { metric: 'Enterprise Value', value: 3050, fill: 'hsl(var(--primary))' },
+  { metric: 'Net Debt', value: 420, fill: 'hsl(0 60% 55%)' },
+  { metric: 'Equity Value', value: 2630, fill: 'hsl(var(--accent))' }
+];
+
 const projects = [
   {
     id: 0,
@@ -302,6 +357,50 @@ const projects = [
     insight: 'ITC demonstrates strong cash-flow generation, margin stability, and balance-sheet strength across business cycles.',
     linkedinUrl: 'https://www.linkedin.com/posts/adarshkumar-_itc-financial-analysis-activity-7414871028784418816-GuWP',
     chartType: 'itc-financial'
+  },
+  {
+    id: 7,
+    title: 'Aura IPO Analysis',
+    company: 'Aura (D2C Consumer Brand)',
+    sector: 'Consumer / IPO',
+    icon: TrendingUp,
+    summary: 'IPO analysis evaluating financial trajectory, valuation methodologies, and recommended price band, with a focus on D2C-led margin expansion.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR (FY22–24)', value: '~43%' },
+      { label: 'EBITDA Margin', value: '7.5% → 12%' },
+      { label: 'D2C Mix', value: '~68%' },
+      { label: 'Valuation Approach', value: 'DCF + EV/EBITDA + P/E' }
+    ],
+    keyOutputs: [
+      { label: 'Recommended Band', value: '₹115–₹140', type: 'neutral' },
+      { label: 'DCF Value', value: '₹128', type: 'neutral' },
+      { label: 'EV/EBITDA Value', value: '₹135', type: 'neutral' }
+    ],
+    insight: 'Strong margin expansion driven by D2C mix shift; valuation suggests moderate upside with execution and channel-mix risks.',
+    linkedinUrl: 'https://www.linkedin.com',
+    chartType: 'aura-ipo'
+  },
+  {
+    id: 8,
+    title: 'Pennar Industries – Equity Research',
+    company: 'Pennar Industries Ltd',
+    sector: 'Engineering / Steel Products',
+    icon: BarChart3,
+    summary: 'Equity research note covering revenue and margin trajectory, capital efficiency, segment mix, and DCF-based intrinsic value.',
+    keyAssumptions: [
+      { label: 'Revenue CAGR (FY21–25E)', value: '~19%' },
+      { label: 'EBITDA Margin', value: '7.0% → 9.0%' },
+      { label: 'ROCE (FY25E)', value: '~21.8%' },
+      { label: 'WACC', value: '~12.5%' }
+    ],
+    keyOutputs: [
+      { label: 'Intrinsic Value', value: '₹195/share', type: 'positive' },
+      { label: 'Equity Value', value: '₹2,630 Cr', type: 'neutral' },
+      { label: 'Net Debt', value: '₹420 Cr', type: 'neutral' }
+    ],
+    insight: 'Operating leverage is improving margins and cash flow generation has turned around, supporting a constructive view at current valuations.',
+    linkedinUrl: 'https://www.linkedin.com',
+    chartType: 'pennar'
   }
 ];
 
@@ -642,6 +741,139 @@ const Projects = () => {
                 <p className="text-lg font-bold text-foreground">11.12%</p>
               </div>
             </div>
+          </div>
+        );
+      case 'aura-ipo':
+        return (
+          <div className="h-[320px] space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue (₹Cr) & Growth (%)</p>
+              <ResponsiveContainer width="100%" height={90}>
+                <ComposedChart data={auraRevenueGrowth}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="left" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Bar yAxisId="left" dataKey="revenue" fill="hsl(var(--primary))" name="Revenue" radius={[3, 3, 0, 0]} />
+                  <Line yAxisId="right" type="monotone" dataKey="growth" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} name="Growth %" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">EBITDA Margin (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={auraEbitdaMargin}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} domain={[5, 14]} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="margin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ fill: 'hsl(var(--accent))', r: 3 }} />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Revenue Mix</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <RechartsPie>
+                    <Pie data={auraRevenueMix} cx="50%" cy="50%" innerRadius={20} outerRadius={35} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} labelLine={false} style={{ fontSize: 8 }}>
+                      {auraRevenueMix.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Pie>
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  </RechartsPie>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Valuation Comparison (₹/share)</p>
+              <ResponsiveContainer width="100%" height={70}>
+                <BarChart data={auraValuation}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="method" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`₹${v}`, '']} />
+                  <Bar dataKey="value" radius={[3, 3, 0, 0]}>
+                    {auraValuation.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <p className="text-[10px] text-accent mt-1 font-medium text-center">Recommended Band: ₹115–₹140</p>
+            </div>
+          </div>
+        );
+      case 'pennar':
+        return (
+          <div className="h-[320px] space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground mb-1 font-medium">Revenue & EBITDA (₹Cr)</p>
+              <ResponsiveContainer width="100%" height={90}>
+                <BarChart data={pennarRevEbitda}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="year" tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis tick={{ fontSize: 8, fill: 'hsl(var(--muted-foreground))' }} />
+                  <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  <Legend wrapperStyle={{ fontSize: 8 }} />
+                  <Bar dataKey="revenue" fill="hsl(var(--primary))" name="Revenue" radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="ebitda" fill="hsl(var(--accent))" name="EBITDA" radius={[2, 2, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Margins (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={pennarMargins}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="ebitdaMargin" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 2 }} name="EBITDA %" />
+                    <Line type="monotone" dataKey="patMargin" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ r: 2 }} name="PAT %" />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">ROE & ROCE (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <ComposedChart data={pennarReturns}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="year" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`${v}%`, '']} />
+                    <Line type="monotone" dataKey="roe" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 2 }} name="ROE" />
+                    <Line type="monotone" dataKey="roce" stroke="hsl(var(--accent))" strokeWidth={2} dot={{ r: 2 }} name="ROCE" />
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">Segment Mix (%)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <RechartsPie>
+                    <Pie data={pennarSegments} cx="50%" cy="50%" innerRadius={18} outerRadius={35} dataKey="value" label={({ value }) => `${value}%`} labelLine={false} style={{ fontSize: 7 }}>
+                      {pennarSegments.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Pie>
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} />
+                  </RechartsPie>
+                </ResponsiveContainer>
+              </div>
+              <div>
+                <p className="text-[10px] text-muted-foreground mb-1 font-medium">DCF Bridge (₹Cr)</p>
+                <ResponsiveContainer width="100%" height={80}>
+                  <BarChart data={pennarDcf} layout="vertical">
+                    <XAxis type="number" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} />
+                    <YAxis dataKey="metric" type="category" tick={{ fontSize: 7, fill: 'hsl(var(--muted-foreground))' }} width={70} />
+                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px', fontSize: '10px' }} formatter={(v) => [`₹${v} Cr`, '']} />
+                    <Bar dataKey="value" radius={[0, 3, 3, 0]}>
+                      {pennarDcf.map((e, i) => <Cell key={i} fill={e.fill} />)}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            <p className="text-[10px] text-accent font-medium text-center">Intrinsic Value: ₹195/share · ROCE ~21.8%</p>
           </div>
         );
       default:
