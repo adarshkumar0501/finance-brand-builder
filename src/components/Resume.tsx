@@ -22,10 +22,17 @@ const Resume = () => {
         <div className="text-center mb-8">
           <h2 className="text-3xl font-semibold text-primary mb-4">Resume</h2>
           <div className="w-16 h-0.5 bg-accent mx-auto mb-4"></div>
-          <Button onClick={downloadPDF} className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Download className="w-4 h-4 mr-2" />
-            Download PDF Resume
-          </Button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button onClick={downloadPDF} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Download className="w-4 h-4 mr-2" />
+              Download PDF Resume
+            </Button>
+            <Button asChild variant="outline">
+              <a href={RESUME_FILE} target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
+            </Button>
+          </div>
         </div>
 
         {/* Resume Content - ATS Friendly Layout */}
